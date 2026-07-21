@@ -22,7 +22,7 @@ bot = commands.Bot(command_prefix=("!", "?", "-", "=", ";"), intents=intents)
 @bot.event
 async def on_ready():
     print("|--------------------------|") #<--- Decorative text
-    print("|-The bot can now be used.-|") #<--- The line that tells u s if the bot is ready for use.
+    print("|-The bot can now be used.-|") #<--- The line that tells us if the bot is ready for use.
     print("|--------------------------|") #<--- Decorative text
 
 #Dms the user a join message.
