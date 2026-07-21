@@ -125,7 +125,7 @@ async def dm(ctx, *, msg):
 #The bot will reply to its dms.
 @bot.command()
 async def reply(ctx):
-    await ctx.reply("This is a reply to your message")
+    await ctx.reply("This is a reply to your message.")
 
 #!poll || Poll command.
 @bot.command()
