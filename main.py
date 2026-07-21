@@ -193,7 +193,7 @@ async def outbot(ctx):
 ## - Last update = July 19th 2026
 ## - TOS = Coming Soon
 ## - Privacy Policy = Coming Soon
-## - GitHub = Coming Soon
+## - GitHub = https://github.com/Mythordian-py/OutBot/blob/main/main.py
 ## - {ctx.author.mention}""")
 
 
