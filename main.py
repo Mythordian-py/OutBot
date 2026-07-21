@@ -35,6 +35,7 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == bot.user:
         return
+    await bot.process_commands(message)
 
 #!hello || Hello command. I will add a how are you command too.
 @bot.command()
@@ -187,7 +188,7 @@ async def obhelp(ctx):
 async def outbot(ctx):
     await ctx.send(f"""## OutBot
 ## - Bot Version = 0.2
-## - Total lines of code = 226
+## - Total lines of code = 227
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
 ## - Last update = July 19th 2026
