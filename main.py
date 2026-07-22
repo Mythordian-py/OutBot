@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
+
 #Loads .env and the bot token.
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
@@ -16,9 +17,32 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-#Command prefix
+
+
+#______________________________________________________________________________Command prefix________________________________________________________________________________
 bot = commands.Bot(command_prefix=("!", "?", "-", "=", ";"), intents=intents)
 
+
+
+
+
+#___________________________________________________________________________________Events___________________________________________________________________________________
+
+
+
+
+
+@bot.event
+async def on_ready():
+    ...
+
+@bot.event
+async def on_member_join(member):
+    ...
+
+@bot.event
+async def on_message(message):
+    ...
 #Tells us when the bot is ready to be used.
 @bot.event
 async def on_ready():
@@ -28,10 +52,14 @@ async def on_ready():
     synced = await bot.tree.sync()
     print(f"synced {len(synced)} slash commands")
 
+
+
 #Sends a welcome Dm to new members.
 @bot.event
 async def on_member_join(member):
     await member.send(f"Welcome to Outmyth {member.name}!")
+
+
 
 #Checks who sent the message. Avoids the bot responding to itself.
 @bot.event
@@ -40,10 +68,24 @@ async def on_message(message):
         return
     await bot.process_commands(message) #<--- Processes all commands.
 
+
+
+
+
+
+#________________________________________________________________________________Prefix_Commands____________________________________________________________________________
+
+
+
+
+
+
 #!hello | Hello command | When the !hello command is used, the bot will say hello and ping the user.
 @bot.command()
 async def hello(ctx):
     await ctx.send(f"Hello, {ctx.author.mention}!")
+
+
 
 #!outmyth | Outmyth command | When the !outmyth command is used, the bot will display imformation about OutMyth's Discord Server & Youtube channel.
 @bot.command()
@@ -58,6 +100,7 @@ OutMyth YouTube = https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
     
 OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 {ctx.author.mention}""")
+
 
 
 #!omhis| OutMyth History command | When the command omhis is used, the bot will display key imformation about OutMyth. 
@@ -75,6 +118,7 @@ async def omhis(ctx):
     In early January, Valorous decided to leave OutMyth. This was the main reason there was a name change. Valorous decided to join back after around
     2 months later. OutBot(Outmyth Ai) was created on 11th of July 2026. Outmyth Ai was renamed to Outbot on the 19th of July 2026. Outmyth Ai did briefly exist 
     under another alias, askie for around a couple of days. Unfortunately, Outmyth Ai's(Askie's) Api key was lost.{ctx.author.mention}""")
+
 
 
 #!omRules | Server Rules command | When the !omrules command is used, the bot will display OutMyth's server rules.
@@ -117,28 +161,39 @@ async def omrules(ctx):
 - :handshake: Be kind, respectful, and helpful to everyone.
     {ctx.author.mention})""")
 
+
+
 #!dm command code | To use !dm, type !dm followed by what you want to be dmed. Make sure you HAVE Dms ON! Or else the bot can't Dm you!
 @bot.command()
 async def dm(ctx, *, msg):
     await ctx.author.send(f"""Dm: || {msg}||""")
+
+
 
 #!reply | The !reply command will cause the bot to reply to the message.
 @bot.command()
 async def reply(ctx):
     await ctx.reply(f"Hello, {ctx.author.mention}! How are you?")
 
+
+
 #!poll || Poll command.
 @bot.command()
 async def poll(ctx, *, question):
     embed = discord.Embed(title = f"New Poll", description = question)
+    #Reactions
     poll_message = await ctx.send(embed = embed)
-    await poll_message.add_reaction("👍") #<--- Reacts with a thumbs up.
-    await poll_message.add_reaction("👎") #<--- Reacts  with thumbs down.
-    await poll_message.add_reaction("✅") #<--- Reacts with a tick.
-    await poll_message.add_reaction("❌") #<--- Reacts  with a cross.
+    await poll_message.add_reaction("👍")
+    await poll_message.add_reaction("👎")
+    await poll_message.add_reaction("✅")
+    await poll_message.add_reaction("❌")
+
+
 
 #!obhelp | Help command | When the !obhelp command is used, the bot will tell the user on how to use every command. 
 #There are two parts because it prevents the bot form hitting the 2000 character limit.
+
+
 @bot.command()
 async def obhelp(ctx):
     #part1 for the command obhelp. Contains a guide for commands 1 - 5
@@ -162,6 +217,8 @@ async def obhelp(ctx):
     To use !reply, type !reply in the bot's Dms, in the channels commands or chatbot. /reply will reply to your message. 
     For now it just says "Hello, <pings you>! How are you?".""")
     
+
+
     #part2 for the command obhelp. Contains a guide for commands 6 - 12 
     part2 = (f"""## OutBot Commands (6 - 12)
     
@@ -188,12 +245,14 @@ async def obhelp(ctx):
     await ctx.send(part1)
     await ctx.send(part2)
 
+
+
 #!outbot|| Bot Information command | When !outbot is used, the bot will display useful imformation about the OutBot.
 @bot.command()
 async def outbot(ctx):
     await ctx.send(f"""## OutBot
 ## - Bot Version = 0.2
-## - Total lines of code = 438
+## - Total lines of code = 534
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
 ## - Last update = July 19th 2026
@@ -201,6 +260,7 @@ async def outbot(ctx):
 ## - Privacy Policy = Coming Soon
 ## - GitHub = https://github.com/Mythordian-py/OutBot/blob/main/main.py
 ## - {ctx.author.mention}""")
+
 
 
 #!botrules | Bot rules command | When !botrules is used, the bot will display the rules of OutBot. 
@@ -213,6 +273,8 @@ async def botrules(ctx):
     - 4. Please try to find bugs and report them by opening a ticket.
 ## - {ctx.author.mention}""")
 
+
+
 #!youtube| Youtube command | When !youtube is used, the bot displays the OutMyth's YouTube channel link.
 @bot.command()
 async def youtube(ctx):
@@ -221,12 +283,16 @@ async def youtube(ctx):
 https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
 {ctx.author.mention}""")
 
+
+
 #!serverlink | Discord server link command. | When !serverlink is used, the bot displays the OutMyth's Discord server invite link.
+@bot.command()
 async def serverlink(ctx):
     await ctx.send(f"""OutMyth's Discord Server:
 
 https://discord.gg/Sc5vAvTJtc
 {ctx.author.mention}""")
+
 
 
 #!ping | Ping command | When !ping is used the bot pings the user.
@@ -239,7 +305,14 @@ async def ping(ctx):
 
 
 
-#______________________________________________________________________________Slash commands______________________________________________________________________________
+
+
+
+
+#___________________________________________________________________________________Slash_Commands__________________________________________________________________________
+
+
+
 
 
 
@@ -250,6 +323,8 @@ async def ping(ctx):
 @bot.tree.command(name="hello", description="It pings you & says hello!")
 async def hello(interaction):
     await interaction.response.send_message(f"Hello, {interaction.user.mention}!")
+
+
 
 #/outmyth
 @bot.tree.command(name="outmyth", description="Shows OutMyth's Dicord & YouTube links, and their members/subscribers.")
@@ -264,6 +339,8 @@ OutMyth YouTube = https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
     
 OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 {interaction.user.mention}""")
+
+
 
 #/omhis
 @bot.tree.command(name="omhis", description="OutMyth's History.")
@@ -280,6 +357,8 @@ async def omhis(interaction):
     In early January, Valorous decided to leave OutMyth. This was the main reason there was a name change. Valorous decided to join back after around
     2 months later. OutBot(Outmyth Ai) was created on 11th of July 2026. Outmyth Ai was renamed to Outbot on the 19th of July 2026. Outmyth Ai did briefly exist 
     under another alias, askie for around a couple of days. Unfortunately, Outmyth Ai's(Askie's) Api key was lost.{interaction.user.mention}""")
+
+
 
 #/omrules
 @bot.tree.command(name="omrules", description="OutMyth Discord Server Rules.")
@@ -321,16 +400,22 @@ async def omrules(interaction):
 - :handshake: Be kind, respectful, and helpful to everyone.
     {interaction.user.mention})""")
 
+
+
 #/dm
 @bot.tree.command(name="dm", description="Dms the user. Please make sure you have Dms turned on.")
 async def dm(interaction, msg: str):
     await interaction.user.send(f"Dm: ||{msg}||")
     await interaction.response.send_message("Check your Dms!", ephemeral=True)
 
+
+
 #/reply
 @bot.tree.command(name="reply", description="The bot replies to your message.")
 async def reply(interaction, reply: str):
     await interaction.response.send_message(f"Reply: ||{reply}||", ephemeral=True)
+
+
 
 #/poll
 @bot.tree.command(name="poll", description="Creates a new poll.")
@@ -343,6 +428,8 @@ async def poll(interaction, question: str):
     await poll_message.add_reaction("👎")
     await poll_message.add_reaction("✅")
     await poll_message.add_reaction("❌")
+
+
 
 #/help
 @bot.tree.command(name="obhelp", description="Command guide")
@@ -365,6 +452,9 @@ async def obhelp(interaction):
     - Command 5: /reply
     To use /reply, type !reply in the bot's Dms, in the channels commands or chatbot. /reply will reply to your message. 
     For now it just says "Hello, <pings you>! How are you?".""")
+    
+
+
     #part2 | Contains a guide for commands 6 - 12 
     part2 = (f"""## OutBot Commands (6 - 12)
     
@@ -391,12 +481,14 @@ async def obhelp(interaction):
     await interaction.response.send_message(part1)
     await interaction.followup.send(part2)
 
+
+
 #/outbot
 @bot.tree.command(name="outbot", description="Imformation about OutBot!")
 async def outbot(interaction):
     await interaction.response.send_message(f"""## OutBot
 ## - Bot Version = 0.2
-## - Total lines of code = 438
+## - Total lines of code = 534
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
 ## - Last update = July 19th 2026
@@ -415,6 +507,8 @@ async def botrules(interaction):
     - 4. Please try to find bugs and report them by opening a ticket.
 ## - {interaction.user.mention}""")
 
+
+
 #/youtube
 @bot.tree.command(name="youtube", description="OutMyth's Youtube channel link")
 async def youtube(interaction):
@@ -422,6 +516,8 @@ async def youtube(interaction):
 
 https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
 {interaction.user.mention}""")
+
+
 
 #/serverlink
 @bot.tree.command(name="serverlink", description="OutMyth's Discord server invite link.")
