@@ -17,6 +17,7 @@ import os
 
 
 
+#Loads .env and gets the discord token from .env form the variable DISCORD_TOKEN
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 
@@ -43,10 +44,14 @@ bot = commands.Bot(command_prefix=None,intents=intents)
 
 
 
+#Tells us when the Bot is ready for use
 @bot.event
 async def on_ready():
     synced = await bot.tree.sync()
-    print(f"Synced {len(synced)} slash commands")
+    print()
+    print("OutBot is ready!")
+    print("================")
+    print(f"Synced {len(synced)} slash commands!")
 
 
 
@@ -60,7 +65,7 @@ async def on_ready():
 
 
 
-#/hello
+#/hello | Says Hello to the user & pings them.
 @bot.tree.command(name="hello", description="It pings you & says hello!")
 async def hello(interaction):
     await interaction.response.send_message(f"Hello, {interaction.user.mention}!")
@@ -69,14 +74,10 @@ async def hello(interaction):
 
 
 
-#/outmyth
+#/outmyth | Useful information about OutMyth.
 @bot.tree.command(name="outmyth", description="Shows OutMyth's Dicord & YouTube links, and their members/subscribers.")
 async def outmyth(interaction):
     await interaction.response.send_message(f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian! 
-    
-OutMyth's Discord Server currently has 28 members.
-
-OutMyth's YouTube channel currently has 12 subcribers. 
     
 OutMyth YouTube = https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
     
@@ -87,7 +88,7 @@ OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 
 
 
-#/omhis
+#/omhis | Important events that happened in OutMyth's history.
 @bot.tree.command(name="omhis", description="OutMyth's History.")
 async def omhis(interaction):
     await interaction.response.send_message(f"""
@@ -107,7 +108,7 @@ async def omhis(interaction):
 
 
 
-#/omrules
+#/omrules | OutMyth discord server rules.
 @bot.tree.command(name="omrules", description="OutMyth Discord Server Rules.")
 async def omrules(interaction):
     await interaction.response.send_message(f"""## :scroll: **Rules**
@@ -151,7 +152,7 @@ async def omrules(interaction):
 
 
 
-#/dm
+#/dm | Dms the suer. ("Check you Dms!" Can only be seen by you becasue of ephemeral=True)
 @bot.tree.command(name="dm", description="Dms the user. Please make sure you have Dms turned on.")
 async def dm(interaction, msg: str):
     await interaction.user.send(f"Dm: ||{msg}||")
@@ -161,16 +162,16 @@ async def dm(interaction, msg: str):
 
 
 
-#/reply
-@bot.tree.command(name="reply", description="The bot replies to your message.")
-async def reply(interaction, reply: str):
-    await interaction.response.send_message(f"Reply: ||{reply}||", ephemeral=True)
+#/say | You tell the bot what to say!
+@bot.tree.command(name="say", description="You tell the Bot what to say!")
+async def say(interaction, say: str):
+    await interaction.response.send_message(f"You told me to say: ||{say}||")
 
 
 
 
 
-#/poll
+#/poll | Creates a poll with a title, description and 20 readtions. (20 reactions is the max amount of reactions a Discord message can have)
 @bot.tree.command(name="poll", description="Create a new poll.")
 async def poll(interaction,poll_title: str, question: str):
     embed = discord.Embed(title=poll_title, description=question)
@@ -179,12 +180,13 @@ async def poll(interaction,poll_title: str, question: str):
     #reactions
     for emoji in ("👍", "👎","✅", "❌", "😭", "🥀", "💀", "☠️", "😂", "🤣", "🔥", "🤡", "😱", "🗣️", "🐐", "👑", "🥶", "🤏", "🗿"):
         await poll_msg.add_reaction(emoji)
+    #Tuple used because they are faster than lists; are ordered & unchangable.
 
 
 
 
 
-#/obhelp
+#/obhelp | Outbot commands list.
 @bot.tree.command(name="obhelp", description="Command guide")
 async def obhelp(interaction):
     #part1 | Contains a guide for commands 1 - 5
@@ -195,7 +197,7 @@ async def obhelp(interaction):
     /hello will say Hello to the user and ping the user.
     - Command 2: /outmyth
     To use /outmyth, type /outmyth in the bot's Dms or in the channels commands/chatbot.
-    /outmyth will tell you about OutMyth. It will send the links of OutMyth's youtube channel and discord server.
+    /outmyth will tell you about OutMyth. It will send the links of OutMyth's YouTube channel and discord server.
     - Command 3: /omhis
     To use /omhis, type /omhis in the bot's Dms or in the channels commands/chatbot.
     /omhis will tell you about the history of OutMyth
@@ -220,7 +222,7 @@ async def obhelp(interaction):
     To use the command: /outbot, type /outbot in the Bot's Dms or in the channels commands/chatbot.
     The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs.
     - Command 8: /youtube
-    To use /youtube, type /youtube in the bot's Dms or in the channels commands/chatbot. /youtube will give you the link to OutMyth'syoutube channel.
+    To use /youtube, type /youtube in the bot's Dms or in the channels commands/chatbot. /youtube will give you the link to OutMyth's YouTube channel.
     - Command 9: /serverlink
     To use /serverlink, type /serverlink in the bot's Dms or in the channels commands/chatbot. /serverlink will give you the invite link to OutMyth'sdiscord server.
     - Command 10: /omrules
@@ -238,7 +240,7 @@ async def obhelp(interaction):
 
 
 
-#/outbot
+#/outbot | Useful imformation about OutBot
 @bot.tree.command(name="outbot", description="Imformation about OutBot!")
 async def outbot(interaction):
     await interaction.response.send_message(f"""## OutBot
@@ -255,7 +257,7 @@ async def outbot(interaction):
 
 
 
-#/botrules
+#/botrules | OutBot useage rules.
 @bot.tree.command(name="botrules", description="OutBot's Rules!")
 async def botrules(interaction):
     await interaction.response.send_message(f"""## Bot Rules
@@ -263,16 +265,17 @@ async def botrules(interaction):
     - 2. Only use OutBot in the channels command or chatbot.
     - 3. Do NOT try to exploit OutBot.
     - 4. Please try to find bugs and report them by opening a ticket.
+    - 5. Do **NOT** make the bot dm you something offensive or make the bot say something offensive
 ## - {interaction.user.mention}""")
 
 
 
 
 
-#/youtube
-@bot.tree.command(name="youtube", description="OutMyth's Youtube channel link")
+#/youtube | OutMyth YouTube channel link.
+@bot.tree.command(name="youtube", description="OutMyth's YouTube channel link")
 async def youtube(interaction):
-    await interaction.response.send_message(f"""OutMyth's Youtube Channel:
+    await interaction.response.send_message(f"""OutMyth's YouTube Channel:
 
 https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
 {interaction.user.mention}""")
@@ -281,7 +284,7 @@ https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
 
 
 
-#/serverlink
+#/serverlink | OutMyth Discord server invite link.
 @bot.tree.command(name="serverlink", description="OutMyth's Discord server invite link.")
 async def serverlink(interaction):
     await interaction.response.send_message(f"""OutMyth's Discord Server:
@@ -293,8 +296,8 @@ https://discord.gg/Sc5vAvTJtc
 
 
 
-#/ping
-@bot.tree.command(name="ping", description="Pings the user who used the command")
+#/ping | Pings the user.
+@bot.tree.command(name="ping", description="Pings you")
 async def ping(interaction):
     await interaction.response.send_message(f"{interaction.user.mention}")
 
