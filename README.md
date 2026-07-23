@@ -1,19 +1,11 @@
 OutBot - Update - 12th July 2026
-
 Version: 0.1
 
-Responds when /outmyth is used.
+- Responds when /outmyth is used.
 
 
 
-
-
-
-
-
-
-
-Update 0.2_____________________________________________________________________________________________________________________________________________
+Update 0.2
 OutBot - Update - 19th July 2026
 
 Version 0.2
@@ -25,18 +17,10 @@ Version 0.2
 - Swear word filter - I will add all censored words in update 0.3 - Currently if you say the words in the screenshot, it will delete your message and ping you. "@{user} - Don't say that word!"
 - Bot Commands Added - /hello ,/outmyth ,/outmyth_history ,/dm /poll ,/bot_help,. Again more commands will be added in update 0.3 and the following updates. If you want to know what each command does, type /help in #🤖┃chatbot or #💻┃commands . Or you can read the code once it's on GitHub.
 - All bot commands work in the bot's Dms.
-@Dev Pings
 
 
 
-
-
-
-
-
-
-
-Update 0.3_____________________________________________________________________________________________________________________________________________
+Update 0.3
 OutBot - Update - 22nd July 2026
 Version 0.3
 
