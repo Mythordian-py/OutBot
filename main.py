@@ -25,10 +25,14 @@ token = os.getenv("DISCORD_TOKEN")
 
 
 
-#Logging & Intents
-handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w") #<--- How logging works
-intents = discord.Intents.default()
-intents.members = True
+#Logging
+handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
+
+
+
+
+
+#Intents
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix=None,intents=intents)
 
@@ -152,7 +156,7 @@ async def omrules(interaction):
 
 
 
-#/dm | Dms the suer. ("Check you Dms!" Can only be seen by you becasue of ephemeral=True)
+#/dm | Dms the suer. ("Check you Dms!" Can only be seen by you becasue: ephemeral=True)
 @bot.tree.command(name="dm", description="Dms the user. Please make sure you have Dms turned on.")
 async def dm(interaction, msg: str):
     await interaction.user.send(f"Dm: ||{msg}||")
@@ -186,55 +190,71 @@ async def poll(interaction,poll_title: str, question: str):
 
 
 
-#/obhelp | Outbot commands list.
-@bot.tree.command(name="obhelp", description="Command guide")
-async def obhelp(interaction):
-    #part1 | Contains a guide for commands 1 - 5
+#/obhelp | Outbot commands list. | Thic can only be seen by you because of ephemeral=True.
+@bot.tree.command(name="help", description="Command guide")
+async def help(interaction):
+    #part1 | Contains a guide for commands 1 - 5.
     part1 = ("""## OutBot Commands (1 - 5)
 
     - Command 1: /hello
     To use the /hello command, type /hello in commands/chatbot, or in the bot's Dms.
-    /hello will say Hello to the user and ping the user.
+        Says Hello to the user and ping the user.
     - Command 2: /outmyth
-    To use /outmyth, type /outmyth in the bot's Dms or in the channels commands/chatbot.
-    /outmyth will tell you about OutMyth. It will send the links of OutMyth's YouTube channel and discord server.
+        To use /outmyth, type /outmyth in the bot's Dms or in the channels commands/chatbot.
+        /outmyth will tell you about OutMyth. It will send the links of OutMyth's YouTube channel and discord server.
     - Command 3: /omhis
-    To use /omhis, type /omhis in the bot's Dms or in the channels commands/chatbot.
-    /omhis will tell you about the history of OutMyth
+        To use /omhis, type /omhis in the bot's Dms or in the channels commands/chatbot.
+        /omhis will tell you about the history of OutMyth
     - Command 4: /dm
-    To use /dm, type /dm in the channels commands/chatbot followed by what you want to be Dmed. 
-    Example: /dm Hello. The bot will Dm me Hello) Please make sure your Dms are turned on. If they are not on, the command will not work.
-    - Command 5: /reply
-    To use /reply, type /reply in the bot's Dms, in the channels commands or chatbot. /reply will reply to your message. 
-    For now it just says "Hello, <pings you>! How are you?".""")
+        To use /dm, type /dm in the channels commands/chatbot followed by what you want to be Dmed. 
+        Example: /dm Hello. The bot will Dm me Hello) Please make sure your Dms are turned on. If they are not on, the command will not work.
+    - Command 5: /say
+        To use /say, type /say in the bot's Dms, in the channels commands or chatbot. /say say anything you want it to say.""")
     
 
 
 
 
-    #part2 | Contains a guide for commands 6 - 12 
-    part2 = (f"""## OutBot Commands (6 - 12)
+    #part2 | Contains a guide for commands 
+    part2 = ("""## OutBot Commands (6 - 10)
     
     - Command 6: /poll
-    To use /poll, type /poll in the Bot's Dms or in the channels commands/chatbot followed by what you want your poll to be about.
-    For Example = /poll Do you like to sleep?
+        To use /poll, type /poll in the Bot's Dms or in the channels commands/chatbot followed by what you want your poll to be about.
+        For Example: /poll Do you like to sleep?
     - Command 7: /outbot
-    To use the command: /outbot, type /outbot in the Bot's Dms or in the channels commands/chatbot.
-    The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs.
+        To use the command: /outbot, type /outbot in the Bot's Dms or in the channels commands/chatbot.
+        The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs.
     - Command 8: /youtube
-    To use /youtube, type /youtube in the bot's Dms or in the channels commands/chatbot. /youtube will give you the link to OutMyth's YouTube channel.
+        To use /youtube, type /youtube in the bot's Dms or in the channels commands/chatbot.
+        /youtube will give you the link to OutMyth's YouTube channel.
     - Command 9: /serverlink
-    To use /serverlink, type /serverlink in the bot's Dms or in the channels commands/chatbot. /serverlink will give you the invite link to OutMyth'sdiscord server.
+        To use /serverlink, type /serverlink in the bot's Dms or in the channels commands/chatbot.
+        /serverlink will give you the invite link to OutMyth'sdiscord server.
     - Command 10: /omrules
-    To use /omrules, type /omrules in the bot's Dms or in the channels command/chatbot. /omrules will display OutMyth'sdiscord server rules.
+        To use /omrules, type /omrules in the bot's Dms or in the channels command/chatbot.
+        /omrules will display OutMyth'sdiscord server rules.""")
+
+
+
+
+    part3 = (f"""Outbot Commands (11 - 15)
     - Command 11: /botrules
-    To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot. The command: /botrules will display the rules onhow to use OutBot
-    - Command 12: /ping
-    To use /ping, type /ping in the bot's Dms or in the channels commands/chatbot. The command: /ping will ping the user who called the command.
+    To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot.
+    The command: /botrules will display the rules onhow to use OutBot
+- Command 12: /ping
+    To use /ping, type /ping in the bot's Dms or in the channels commands/chatbot.
+    The command: /ping will ping the user who called the command.
+- Command 13: ||/rickroll||
+    To use ||/rickroll||, type ||/rickroll|| in the bot's Dms or in the channels command/chatbot.
+    The command will send you a special link...
+- Command 14: /invite
+    To use /invite, type /invite in the bot's Dms or in the channels commands/chatbot.
+    The command will send you the invite link for OutBot
     {interaction.user.mention}""")
 
-    await interaction.response.send_message(part1)
-    await interaction.followup.send(part2)
+    await interaction.response.send_message(part1, ephemeral=True)
+    await interaction.followup.send(part2, ephemeral=True)
+    await interaction.followup.send(part3, ephemeral=True)
 
 
 
@@ -250,7 +270,7 @@ async def outbot(interaction):
 ## - Last update = July 22nd July 2026
 ## - TOS = Coming Soon
 ## - Privacy Policy = Coming Soon
-## - GitHub = https://github.com/Mythordian-py/OutBot/blob/main/main.py
+## - GitHub = <https://github.com/Mythordian-py/OutBot/>
 ## - {interaction.user.mention}""")
 
 
@@ -277,7 +297,7 @@ async def botrules(interaction):
 async def youtube(interaction):
     await interaction.response.send_message(f"""OutMyth's YouTube Channel:
 
-https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
+<https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
 {interaction.user.mention}""")
 
 
@@ -300,5 +320,24 @@ https://discord.gg/Sc5vAvTJtc
 @bot.tree.command(name="ping", description="Pings you")
 async def ping(interaction):
     await interaction.response.send_message(f"{interaction.user.mention}")
+
+
+
+
+
+#r/ickroll | Sends the youtube link to rickroll the user. Only the user can you it because of ephemeral=True
+@bot.tree.command(name="rickroll", description="Don't do it...")
+async def rickroll(interaction):
+    await interaction.response.send_message(f"{interaction.user.mention} | CLICK MEEEEEE ---> ||<https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1>||", ephemeral=True)
+
+
+
+
+
+#/invite | Sends the invite link for the bot.
+@bot.tree.command(name="invite", description="Invite link for OutBot")
+async def invite(interaction):
+    await interaction.response.send_message(f"""Outbot Invite Link:
+    https://discord.com/oauth2/authorize?client_id=1525595736706781384{interaction.user.mention}""")
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
