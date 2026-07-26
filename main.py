@@ -10,6 +10,7 @@ import os
 |Discord Token % Logging & Intents|
 |=================================|
 """
+
 # Loads .env and gets the discord token from .env form the variable DISCORD_TOKEN. This is to ensure the OutBot's token doesn't get leaked
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
@@ -41,6 +42,7 @@ async def on_ready():
 |==============|
 |Slash Commands|
 |==============|
+
 ephemeral=False by defult. This means everyone can see the message displayed by the bot. When ephemeral=True, only the user who send the command can see
 the message displayed by the bot.
 All commands ping the user. This is to ensure the user knows waht command they used. Except emphemeral commands.
