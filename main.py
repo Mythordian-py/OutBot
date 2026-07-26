@@ -5,11 +5,11 @@ import logging
 from dotenv import load_dotenv
 import os
 
-"""
-|=================================|
-|Discord Token % Logging & Intents|
-|=================================|
-"""
+
+# |=================================|
+# |Discord Token % Logging & Intents|
+# |=================================|
+
 # Loads .env and gets the discord token from .env form the variable DISCORD_TOKEN. This is to ensure the OutBot's token doesn't get leaked
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
