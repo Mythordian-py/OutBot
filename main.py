@@ -120,11 +120,14 @@ async def dm(interaction, msg: str):
     try:
         await interaction.user.send(f"Dm: ||{msg}||")
         await interaction.response.send_message("Check your Dms!", ephemeral=True)
+        return
     except discord.Forbidden:
         await interaction.response.send_message("""Error 403! I could not send you a Dm. This is because you have them turned off. Please turn them on to allow me to send
         you a dm""", ephemeral=True)
+        return
     except Exception as e:
         print(e)
+        return
 
 @bot.tree.command(name="say", description="You tell the Bot what to say!")
 async def say(interaction, say: str):
@@ -136,10 +139,13 @@ async def say(interaction, say: str):
         return
     try:
         await interaction.response.send_message(f"{interaction.user.mention} told me to say: ||{say}||")
+        return
     except discord.HTTPException as e:
         await interaction.response.send_message(f"Error{e.status}! Discord API faliure", ephemeral=True)
+        return
     except Exception as e:
         print(e)
+        return
 
 @bot.tree.command(name="poll", description="Create a new poll.")
 async def poll(interaction,poll_title: str, question: str):
@@ -152,8 +158,7 @@ async def poll(interaction,poll_title: str, question: str):
     poll_msg = await interaction.original_response()
     for emoji in ("👍", "👎","✅", "❌", "😭", "🥀", "💀", "☠️", "😂", "🤣", "🔥", "🤡", "😱", "🗣️", "🐐", "👑", "🥶", "🤏", "🗿"):
         await poll_msg.add_reaction(emoji)
-    # Tuple used because they are faster than lists; are ordered & unchangable. A list would be a lot slower than a tuple for 20 reactions.
-    # For loop used to simply 20 lines into 1. It helps with readability.
+    # A list or tuple can be used here. The difference is too small to notice.
 
 @bot.tree.command(name="help", description="Command guide")
 async def help(interaction):
