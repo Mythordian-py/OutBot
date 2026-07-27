@@ -29,7 +29,7 @@ bot = commands.Bot(command_prefix=None, intents=intents)
 # |======|
 
 
-# Prints if the bot can be used with the amount of slash commands.
+
 @bot.event
 async def on_ready():
     synced = await bot.tree.sync()
@@ -42,7 +42,6 @@ async def on_ready():
 # |==============|
 # |Slash Commands|
 # |==============|
-
 # ephemeral=False by default = Everyone can see the response.
 # ephemeral=True = Only the user who sent the command can see the response.
 
@@ -70,7 +69,7 @@ async def outmyth(interaction):
         f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian!
 
 
-OutMyth YouTube = https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
+OutMyth YouTube = <https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
     
 OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 {interaction.user.mention}"""
@@ -390,7 +389,7 @@ async def invite(interaction):
     """
     await interaction.response.send_message(f"""Outbot Invite Link:
 
-    https://discord.com/oauth2/authorize?client_id=1525595736706781384
+    <https://discord.com/oauth2/authorize?client_id=1525595736706781384>
     
     {interaction.user.mention}""")
 
