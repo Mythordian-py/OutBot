@@ -149,7 +149,7 @@ async def dm(interaction, msg: str):
             ephemeral=True,
         )
         return
-    except Exception as e:
+    except Exception:
         logging.exception("message")
         return
 
@@ -178,7 +178,7 @@ async def say(interaction, say: str):
             f"Error{e.status}! Discord API falure", ephemeral=True
         )
         return
-    except Exception as e:
+    except Exception:
         logging.exception("message")
         return
 
