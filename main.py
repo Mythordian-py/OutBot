@@ -138,20 +138,21 @@ async def dm(interaction, msg: str):
             ephemeral=True,
         )
         return
+
     try:
         await interaction.user.send(f"Dm: ||{msg}||")
         await interaction.response.send_message("Check your Dms!", ephemeral=True)
-        return
+
     except discord.Forbidden:
         await interaction.response.send_message(
             """Error 403! I could not send you a Dm. This is because you have them turned off. Please turn them on to allow me to send
         you a dm""",
             ephemeral=True,
         )
-        return
+
     except Exception:
         logging.exception("message")
-        return
+
 
 
 @bot.tree.command(
@@ -168,19 +169,19 @@ async def say(interaction, say: str):
             ephemeral=True,
         )
         return
+
     try:
         await interaction.response.send_message(
             f"{interaction.user.mention} told me to say: ||{say}||"
         )
-        return
+
     except discord.HTTPException as e:
         await interaction.response.send_message(
-            f"Error{e.status}! Discord API falure", ephemeral=True
+            f"Error{e.status}! Discord API faliure", ephemeral=True
         )
-        return
+
     except Exception:
         logging.exception("message")
-        return
 
 
 @bot.tree.command(
@@ -257,20 +258,20 @@ async def help(interaction):
         /youtube will give you the link to OutMyth's YouTube channel.
     - Command 8: /serverlink
         To use /serverlink, type /serverlink in the bot's Dms or in the channels commands/chatbot.
-        /serverlink will give you the invite link to OutMyth'sdiscord server.
+        /serverlink will give you the invite link to OutMyth'sd iscord server.
     - Command 9: /omrules
         To use /omrules, type /omrules in the bot's Dms or in the channels command/chatbot.
-        /omrules will display OutMyth'sdiscord server rules.
+        /omrules will display OutMyth's discord server rules.
     - Command 10: /botrules
         To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot.
-        The command: /botrules will display the rules onhow to use OutBot"""
+        The command: /botrules will display the rules on how to use OutBot"""
 
     part3 = f"""Outbot Commands (11 - 15)
 
 
     - Command 11: /botrules
     To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot.
-    The command: /botrules will display the rules onhow to use OutBot
+    The command: /botrules will display the rules on how to use OutBot
 - Command 12: /ping
     To use /ping, type /ping in the bot's Dms or in the channels commands/chatbot.
     The command: /ping will ping the user who called the command.
