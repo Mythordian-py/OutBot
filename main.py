@@ -14,7 +14,7 @@ load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 
 
-handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
+handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
 
 # Intents | We need member intents to add/remove onboarding roles. Prefixes are set to "None" because OuBot has no prefix commands.
 intents = discord.Intents.default()
@@ -141,7 +141,7 @@ async def dm(interaction, msg: str):
         )
         return
     except Exception as e:
-        logging.exceptionxception("message")
+        logging.exception("message")
         return
 
 
