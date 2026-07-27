@@ -165,7 +165,7 @@ async def say(interaction, say: str):
     """
     if len(say) > 2000:
         await interaction.response.send_message(
-            "Error 413! Your message was too long. Please make it shorter.",
+            "Error 413! Your message was too long. Please make it shorter. To allow me to send you a DM.",
             ephemeral=True,
         )
         return
@@ -177,7 +177,7 @@ async def say(interaction, say: str):
 
     except discord.HTTPException as e:
         await interaction.response.send_message(
-            f"Error{e.status}! Discord API faliure", ephemeral=True
+            f"Error{e.status}! Discord API failure", ephemeral=True
         )
 
     except Exception:
@@ -233,56 +233,56 @@ async def help(interaction):
 
 
     - Command 1: /hello
-    To use the /hello command, type /hello in commands/chatbot, or in the bot's Dms.
+    To use the /hello command, type /hello in commands/chatbot, or in the bot's DMs.
         Says Hello to the user and ping the user.
     - Command 2: /outmyth
-        To use /outmyth, type /outmyth in the bot's Dms or in the channels commands/chatbot.
+        To use /outmyth, type /outmyth in the bot's DMs or in the channels commands/chatbot.
         /outmyth will tell you about OutMyth. It will send the links of OutMyth's YouTube channel and discord server.
     - Command 3: /dm
         To use /dm, type /dm in the channels commands/chatbot followed by what you want to be Dmed. 
-        Eg: /dm Hello. The bot will Dm me Hello) Please make sure your Dms are turned on. If they are not on, the command will not work.
+        Eg: /dm Hello. The bot will DM me Hello) Please make sure your DMs are turned on. If they are not on, the command will not work.
     - Command 4: /say
-        To use /say, type /say in the bot's Dms, in the channels commands or chatbot. /say say anything you want it to say.
+        To use /say, type /say in the bot's DMs, in the channels commands or chatbot. /say say anything you want it to say.
     - Command 5: /poll
-        To use /poll, type /poll in the Bot's Dms or in the channels commands/chatbot followed by what you want your poll to be about.
+        To use /poll, type /poll in the Bot's DMs or in the channels commands/chatbot followed by what you want your poll to be about.
         Eg: /poll Do you like to sleep"""
 
     part2 = """## OutBot Commands (6 - 10)
 
 
     - Command 6: /outbot
-        To use the command: /outbot, type /outbot in the Bot's Dms or in the channels commands/chatbot.
+        To use the command: /outbot, type /outbot in the Bot's DMs or in the channels commands/chatbot.
         The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs.
     - Command 7: /youtube
-        To use /youtube, type /youtube in the bot's Dms or in the channels commands/chatbot.
+        To use /youtube, type /youtube in the bot's DMs or in the channels commands/chatbot.
         /youtube will give you the link to OutMyth's YouTube channel.
     - Command 8: /serverlink
-        To use /serverlink, type /serverlink in the bot's Dms or in the channels commands/chatbot.
-        /serverlink will give you the invite link to OutMyth'sd iscord server.
+        To use /serverlink, type /serverlink in the bot's DMs or in the channels commands/chatbot.
+        /serverlink will give you the invite link to OutMyth's discord server.
     - Command 9: /omrules
-        To use /omrules, type /omrules in the bot's Dms or in the channels command/chatbot.
+        To use /omrules, type /omrules in the bot's DMs or in the channels command/chatbot.
         /omrules will display OutMyth's discord server rules.
     - Command 10: /botrules
-        To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot.
+        To use /botrules, type /botrules in the bot's DMs or in the channels commands/chatbot.
         The command: /botrules will display the rules on how to use OutBot"""
 
     part3 = f"""Outbot Commands (11 - 15)
 
 
     - Command 11: /botrules
-    To use /botrules, type /botrules in the bot's Dms or in the channels commands/chatbot.
+    To use /botrules, type /botrules in the bot's DMs or in the channels commands/chatbot.
     The command: /botrules will display the rules on how to use OutBot
 - Command 12: /ping
-    To use /ping, type /ping in the bot's Dms or in the channels commands/chatbot.
+    To use /ping, type /ping in the bot's DMs or in the channels commands/chatbot.
     The command: /ping will ping the user who called the command.
 - Command 13: ||/rickroll||
-    To use ||/rickroll||, type ||/rickroll|| in the bot's Dms or in the channels command/chatbot.
+    To use ||/rickroll||, type ||/rickroll|| in the bot's DMs or in the channels command/chatbot.
     The command will send you a special link...
 - Command 14: /invite
-    To use /invite, type /invite in the bot's Dms or in the channels commands/chatbot.
+    To use /invite, type /invite in the bot's DMs or in the channels commands/chatbot.
     The command will send you the invite link for OutBot
--Command 15 /roadmap
-    To use /roadmap, type /roadmap in the bot's Dms or in the channels commands/chatbot.
+-Command 15: /roadmap
+    To use /roadmap, type /roadmap in the bot's DMs or in the channels commands/chatbot.
     /roadmap will show you OutBot's planned features!
     {interaction.user.mention}"""
 
@@ -303,7 +303,7 @@ async def outbot(interaction):
 ## - Bot Version = 0.3
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
-## - Last update = July 22nd July 2026
+## - Last update = July 22nd 2026
 ## - TOS = Coming Soon
 ## - Privacy Policy = Coming Soon
 ## - GitHub = <https://github.com/Mythordian-py/OutBot/>
@@ -323,7 +323,7 @@ async def botrules(interaction):
     - 2. Only use OutBot in the channels command or chatbot.
     - 3. Do NOT try to exploit OutBot.
     - 4. Please try to find bugs and report them by opening a ticket.
-    - 5. Do **NOT** make the bot dm you something offensive or make the bot say something offensive
+    - 5. Do **NOT** make the bot DM you something offensive or make the bot say something offensive
 ## - {interaction.user.mention}""")
 
 
