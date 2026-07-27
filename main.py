@@ -18,7 +18,7 @@ if not token:
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
 
 
-# Intents | We need member intents to add/remove onboarding roles. Prefixes are set to "None" because OuBot has no prefix commands.
+# Intents | We need member intents to add/remove onboarding roles.
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix=None, intents=intents)
