@@ -141,7 +141,7 @@ async def dm(interaction, msg: str):
         )
         return
     except Exception as e:
-        print(e)
+        logging.exceptionxception("message")
         return
 
 
@@ -167,7 +167,7 @@ async def say(interaction, say: str):
         )
         return
     except Exception as e:
-        print(e)
+        logging.exception("message")
         return
 
 
@@ -202,7 +202,7 @@ async def poll(interaction, poll_title: str, question: str):
         "🗿",
     ):
         await poll_msg.add_reaction(emoji)
-    # A list or tuple can be used here. The difference is too small to notice.
+    # A list; tuple; set can be used here. The difference is too small to notice.
 
 
 @bot.tree.command(name="help", description="Command guide")
