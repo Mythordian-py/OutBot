@@ -1,4 +1,3 @@
-# The first words in a comment, is the command name.
 import discord
 from discord.ext import commands
 import logging
@@ -9,16 +8,15 @@ import os
 # |Discord Token & Logging & Intents|
 # |=================================|
 
-load_dotenv
+
+load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
-if "DISCORD_TOKEN" == "YOUR_TOKEN_GOES_HERE":
-    print("Please enter your discord token")
-else:
-    load_dotenv()
-    token = os.getenv("DISCORD_TOKEN")
+if not token:
+    raise RuntimeError("Discord token not found.")
 
 
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
+
 
 # Intents | We need member intents to add/remove onboarding roles. Prefixes are set to "None" because OuBot has no prefix commands.
 intents = discord.Intents.default()
@@ -31,12 +29,12 @@ bot = commands.Bot(command_prefix=None, intents=intents)
 # |======|
 
 
-# Prints if the bot can be used with the amount of slash commands synced(that can be used.).
+# Prints if the bot can be used with the amount of slash commands.
 @bot.event
 async def on_ready():
     synced = await bot.tree.sync()
     print()
-    print("OutBot is ready for use!")
+    print("OutBot is ready for!")
     print()
     print(f"Synced {len(synced)} slash commands!")
 
@@ -51,7 +49,7 @@ async def on_ready():
 
 @bot.tree.command(
     name="hello",
-    description="It pings you & says hello!"
+    description="It pings you & says hello!",
 )
 async def hello(interaction):
     """
@@ -69,7 +67,7 @@ async def outmyth(interaction):
     /outmyth | Useful information about OutMyth. For example, links to OutMyth's Discord server and YouTube channel. Explains what OUtMyth is.
     """
     await interaction.response.send_message(
-        f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian! 
+        f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian!
 
 
 OutMyth YouTube = https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw
@@ -81,7 +79,7 @@ OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 
 @bot.tree.command(
     name="omrules",
-    description="OutMyth Discord Server Rules."
+    description="OutMyth Discord Server Rules.",
 )
 async def rules(interaction):
     """
@@ -127,7 +125,7 @@ async def rules(interaction):
 
 @bot.tree.command(
     name="dm",
-    description="Dms the user. Please make sure you have Dms turned on."
+    description="Dms the user. Please make sure you have Dms turned on.",
 )
 async def dm(interaction, msg: str):
     """
@@ -158,7 +156,7 @@ async def dm(interaction, msg: str):
 
 @bot.tree.command(
     name="say",
-    description="You tell the Bot what to say!"
+    description="You tell the Bot what to say!",
 )
 async def say(interaction, say: str):
     """
@@ -187,7 +185,7 @@ async def say(interaction, say: str):
 
 @bot.tree.command(
     name="poll",
-    description="Create a new poll."
+    description="Create a new poll.",
 )
 async def poll(interaction, poll_title: str, question: str):
     """
@@ -219,12 +217,11 @@ async def poll(interaction, poll_title: str, question: str):
         "🗿",
     ):
         await poll_msg.add_reaction(emoji)
-    # A list; tuple; set can be used here. The difference is too small to notice.
 
 
 @bot.tree.command(
     name="help",
-    description="Command guide"
+    description="Command guide",
 )
 async def help(interaction):
     """
@@ -284,7 +281,7 @@ async def help(interaction):
     To use /invite, type /invite in the bot's Dms or in the channels commands/chatbot.
     The command will send you the invite link for OutBot
 -Command 15 /roadmap
-    To use /invite, type /invite in the bot's Dms or in the channels commands/chatbot.
+    To use /roadmap, type /roadmap in the bot's Dms or in the channels commands/chatbot.
     /roadmap will show you OutBot's planned features!
     {interaction.user.mention}"""
 
@@ -295,7 +292,7 @@ async def help(interaction):
 
 @bot.tree.command(
     name="outbot",
-    description="Information about OutBot!"
+    description="Information about OutBot!",
 )
 async def outbot(interaction):
     """
@@ -314,7 +311,7 @@ async def outbot(interaction):
 
 @bot.tree.command(
     name="botrules",
-    description="OutBot's Rules!"
+    description="OutBot's Rules!",
 )
 async def botrules(interaction):
     """
@@ -331,7 +328,7 @@ async def botrules(interaction):
 
 @bot.tree.command(
     name="youtube",
-    description="OutMyth's YouTube channel link"
+    description="OutMyth's YouTube channel link",
 )
 async def youtube(interaction):
     """
@@ -344,8 +341,7 @@ async def youtube(interaction):
 
 
 @bot.tree.command(
-    name="serverlink",
-    description="OutMyth's Discord server invite link."
+    name="serverlink", description="OutMyth's Discord server invite link."
 )
 async def serverlink(interaction):
     """
@@ -360,7 +356,7 @@ https://discord.gg/Sc5vAvTJtc
 
 @bot.tree.command(
     name="ping",
-    description="Pings you"
+    description="Pings you",
 )
 async def ping(interaction):
     """
@@ -371,7 +367,7 @@ async def ping(interaction):
 
 @bot.tree.command(
     name="rickroll",
-    description="Don't do it..."
+    description="Don't do it...",
 )
 async def rickroll(interaction):
     """
@@ -385,7 +381,7 @@ async def rickroll(interaction):
 
 @bot.tree.command(
     name="invite",
-    description="Invite link for OutBot"
+    description="Invite link for OutBot",
 )
 async def invite(interaction):
     """
@@ -400,7 +396,7 @@ async def invite(interaction):
 
 @bot.tree.command(
     name="roadmap",
-    description="OutBot's Planned Features!"
+    description="OutBot's Planned Features!",
 )
 async def roadmap(interaction):
     """
