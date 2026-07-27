@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 
 # |=================================|
-# |Discord Token % Logging & Intents|
+# |Discord Token & Logging & Intents|
 # |=================================|
 
 load_dotenv
