@@ -225,7 +225,7 @@ async def poll(interaction, poll_title: str, question: str):
 )
 async def help(interaction):
     """
-    /obhelp | Outbot commands list. This can only be seen by you because of ephemeral=True. Split into 3 parts of 5 commands to bypass discord's 2000 character limit.
+    /help | Outbot commands list. This can only be seen by you because of ephemeral=True. Split into 3 parts of 5 commands to bypass discord's 2000 character limit.
     This message can only be seen by you because of ephemeral=True.
     """
     part1 = """## OutBot Commands (1 - 5)
