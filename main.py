@@ -43,7 +43,7 @@ async def on_ready():
 # |Slash Commands|
 # |==============|
 
-# ephemeral=False by default = Everyone can see the reponse.
+# ephemeral=False by default = Everyone can see the response.
 # ephemeral=True = Only the user who sent the command can see the response.
 
 
