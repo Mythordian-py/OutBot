@@ -1,8 +1,15 @@
+# How Are imports sorted?
+# - Imports grouped together and from grouped together
+# - Ordered alphabetically
+
+
 import discord
-from discord.ext import commands
 import logging
-from dotenv import load_dotenv
 import os
+
+
+from discord.ext import commands
+from dotenv import load_dotenv
 from emojis import emojis
 
 
