@@ -47,11 +47,6 @@ async def on_ready():
     print()
     print(f"Synced {len(synced)} slash commands.")
 
-# |=======|
-# | Emojis|
-# |=======|
-
-
 
 # |==============|
 # |Slash Commands|
