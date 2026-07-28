@@ -3,6 +3,8 @@ from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
+from emojis import emojis
+
 
 # |=================================|
 # |Discord Token & Logging & Intents|
@@ -37,6 +39,11 @@ async def on_ready():
     print("OutBot is ready for!")
     print()
     print(f"Synced {len(synced)} slash commands!")
+
+# |=======|
+# | Emojis|
+# |=======|
+
 
 
 # |==============|
@@ -187,35 +194,15 @@ async def say(interaction, say: str):
     name="poll",
     description="Create a new poll.",
 )
-async def poll(interaction, poll_title: str, question: str):
+async def poll(interaction, title: str, question: str):
     """
     /poll | Creates a poll with a title, question and 20 reactions to allow the user to pick a reaction of their choice. (20 reactions is the max amount of reactions a
     Discord message can have).The poll title and question are both strings.
     """
-    embed = discord.Embed(title=poll_title, description=question)
+    embed = discord.Embed(title=title, description=question)
     await interaction.response.send_message(embed=embed)
     poll_msg = await interaction.original_response()
-    for emoji in (
-        "👍",
-        "👎",
-        "✅",
-        "❌",
-        "😭",
-        "🥀",
-        "💀",
-        "☠️",
-        "😂",
-        "🤣",
-        "🔥",
-        "🤡",
-        "😱",
-        "🗣️",
-        "🐐",
-        "👑",
-        "🥶",
-        "🤏",
-        "🗿",
-    ):
+    for emoji in emojis:
         await poll_msg.add_reaction(emoji)
 
 
