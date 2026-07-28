@@ -1,8 +1,15 @@
+# How Are imports sorted?
+# - Imports grouped together and from grouped together
+# - Ordered alphabetically
+
+
 import discord
-from discord.ext import commands
 import logging
-from dotenv import load_dotenv
 import os
+
+
+from discord.ext import commands
+from dotenv import load_dotenv
 from emojis import emojis
 
 
@@ -36,9 +43,9 @@ bot = commands.Bot(command_prefix=None, intents=intents)
 async def on_ready():
     synced = await bot.tree.sync()
     print()
-    print("OutBot is ready for!")
+    print("OutBot is ready to be used.")
     print()
-    print(f"Synced {len(synced)} slash commands!")
+    print(f"Synced {len(synced)} slash commands.")
 
 # |=======|
 # | Emojis|
