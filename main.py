@@ -36,9 +36,9 @@ bot = commands.Bot(command_prefix=None, intents=intents)
 async def on_ready():
     synced = await bot.tree.sync()
     print()
-    print("OutBot is ready for!")
+    print("OutBot is ready to be used.")
     print()
-    print(f"Synced {len(synced)} slash commands!")
+    print(f"Synced {len(synced)} slash commands.")
 
 # |=======|
 # | Emojis|
