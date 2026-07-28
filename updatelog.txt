@@ -1,3 +1,28 @@
+OutBot - Update - 28th July 2026
+
+Version 0.4
+
+- New slash commands (/rickroll, /invite, /roadmap, /serverlink, /youtube, /ping, /outbot, /botrules)
+- Removed prefix commands
+- Improved readability (Code ran through black)
+- on_ready print statement update
+- All typos fixed
+- Bugs Patched
+- Most comments changed to doc strings
+- Log mode | w ---> a
+- emojis tuple is in a new file called emojis.py
+- Imports sorted
+- More braches
+- Member intents enabled this is for adding/removing onboarding commands
+- Removed /outhis command
+- Error handling for /dm and /say
+- Checks if token is none
+- Better command names
+- 14 new poll reactions
+
+This update was mainly focused on patching bugs. Update 0.5 will add a lot more commands. Update 0.5 is aimed to come out before September and is currently in development!
+
+
 Update 0.3
 OutBot - Update - 22nd July 2026
 Version 0.3
