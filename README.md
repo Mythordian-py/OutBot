@@ -65,4 +65,4 @@ OutMod will focus on moderation and server management features, while OutBot wil
 - **aardapel1**
 
 Thanks for using OutBot! ❤️ 
-To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc 
+To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc or please open a GitHub issue.
