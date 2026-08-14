@@ -1,1 +1,68 @@
-OutBot is a discord bot created by mythordian and aardappel1. OutBot was created for the Discord Server OutMyth. Which mythordian owns partially. OutBot is open source; contains 16 slash commands. OutBot uses "a" mode logging. Logging is used to fix bugs. OutBot uses Server Member intents to add/remove onboarding roles. OutBot has no prefix commands therefore it uses no command prefixes. OutBot uses an .env file to ensure OutBot's Discord Token doesn't get leaked.
+# 🤖 OutBot
+
+OutBot is a Discord bot created by **Mythordian** and **aardapel1** using **Discord.py**.
+OutBot was created to give users a fun and interactive experience on Discord. It is **not a moderation bot**.
+A separate moderation bot called **OutMod** will be released in the future.
+
+--------------
+
+# 🤖 OutBot Commands
+OutBot currently has **15 slash commands**.
+OutBot does **not** use prefix commands, so there is no command prefix required.
+### 🎮 Commands
+
+- 👋 **`/hello`** — Says hello and mentions you.
+- 🌐 **`/outmyth`** — Shows information about OutMyth, including its Discord server and YouTube channel.
+- 📩 **`/dm`** — Sends a message to your own DMs. Make sure your DMs are enabled!
+- 🗣️ **`/say`** — Makes OutBot say any message you want.
+- 📊 **`/poll`** — Creates a poll with a title and question.
+- 🤖 **`/outbot`** — Shows information about OutBot, including its developers, version, GitHub, and creation/update dates.
+- 📜 **`/omrules`** — Displays the OutMyth Discord server rules.
+- ⚖️ **`/botrules`** — Displays OutBot's usage rules.
+- ▶️ **`/youtube`** — Gives you the OutMyth YouTube channel link.
+- 🔗 **`/serverlink`** — Gives you the OutMyth Discord server invite.
+- 📶 **`/ping`** — Mentions the user who ran the command.
+- 🥸 **`/rickroll`** — Sends a hidden Rickroll link.
+- ➕ **`/invite`** — Gives you the invite link for OutBot.
+- 🗺️ **`/roadmap`** — Shows OutBot's planned upcoming features.
+- ❓ **`/help`** — Shows the bot's command guide.
+
+--------------
+
+# 🔒 Ephemeral Messages
+
+Ephemeral messages can **only be seen by the user who triggered the command**.
+The following commands use ephemeral responses:
+
+- 📩 **`/dm`**
+- 🆘 **`/help`**
+- 🥸 **`/rickroll`**
+- ⚠️ **`/say`** — Error messages are ephemeral.
+
+> ⚠️ Error messages from the bot are also private and can only be seen by the user who triggered the command.
+
+--------------
+
+# 🛠️ Built With
+
+- 🐍 **Python**
+- 🤖 **Discord.py**
+
+--------------
+
+# 🚧 Future Projects
+
+### 🛡️ OutMod
+
+A separate Discord moderation bot is planned for the future.
+OutMod will focus on moderation and server 1management features, while OutBot will remain focused on **fun and interactive features**.
+
+--------------
+
+# 👥 Developers
+
+- **Mythordian**
+- **aardapel1**
+
+Thanks for using OutBot! ❤️ 
+To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc 
