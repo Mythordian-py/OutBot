@@ -55,7 +55,7 @@ The following commands use ephemeral responses:
 ### 🛡️ OutMod
 
 A separate Discord moderation bot is planned for the future.
-OutMod will focus on moderation and server 1management features, while OutBot will remain focused on **fun and interactive features**.
+OutMod will focus on moderation and server management features, while OutBot will remain focused on **fun and interactive features**.
 
 --------------
 
