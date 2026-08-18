@@ -1,7 +1,3 @@
-# How Are imports sorted?
-# - Imports grouped together and from grouped together
-# - Ordered alphabetically
-
 import discord
 import logging
 import os
@@ -235,19 +231,16 @@ async def help(interaction):
 
     part3 = f"""Outbot Commands (11 - 15)
 
-    - Command 11: /botrules
-    To use /botrules, type /botrules in the bot's DMs or in the channels commands/chatbot.
-    The command: /botrules will display the rules on how to use OutBot
-- Command 12: /ping
+- Command 11: /ping
     To use /ping, type /ping in the bot's DMs or in the channels commands/chatbot.
     The command: /ping will ping the user who called the command.
-- Command 13: ||/rickroll||
+- Command 12: ||/rickroll||
     To use ||/rickroll||, type ||/rickroll|| in the bot's DMs or in the channels command/chatbot.
     The command will send you a special link...
-- Command 14: /invite
+- Command 13: /invite
     To use /invite, type /invite in the bot's DMs or in the channels commands/chatbot.
     The command will send you the invite link for OutBot
--Command 15: /roadmap
+-Command 14: /roadmap
     To use /roadmap, type /roadmap in the bot's DMs or in the channels commands/chatbot.
     /roadmap will show you OutBot's planned features!
     {interaction.user.mention}"""
@@ -268,7 +261,7 @@ async def outbot(interaction):
 ## - Bot Version = 0.4
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
-## - Last update = July 22nd 2026
+## - Last update = July 28nd 2026
 ## - TOS = Coming Soon
 ## - Privacy Policy = Coming Soon
 ## - GitHub = <https://github.com/Mythordian-py/OutBot/>
