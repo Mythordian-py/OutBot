@@ -6,9 +6,9 @@ from discord.ext import commands
 from dotenv import load_dotenv
 from emojis import emojis
 
-# |=================================|
-# |Discord Token & Logging & Intents|
-# |=================================|
+# ==============|
+# |Discord cofig|
+# |=============|
 
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
