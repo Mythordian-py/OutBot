@@ -265,7 +265,7 @@ async def outbot(interaction):
     /outbot | Useful information about OutBot. This command exists for user transparency.
     """
     await interaction.response.send_message(f"""## OutBot
-## - Bot Version = 0.3
+## - Bot Version = 0.4
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
 ## - Last update = July 22nd 2026
