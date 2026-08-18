@@ -1,7 +1,7 @@
 # 🤖 OutBot
 
 OutBot is a Discord bot created by **Mythordian** and **aardapel1** using **Discord.py**.
-OutBot was created to give users a fun and interactive experience on Discord. It is **not a moderation bot**.
+OutBot was created to replace other bots for privacy and security reasons. It is **not a moderation bot**.
 A separate moderation bot called **OutMod** will be released in the future.
 
 --------------
@@ -22,7 +22,7 @@ OutBot does **not** use prefix commands, so there is no command prefix required.
 - ▶️ **`/youtube`** — Gives you the OutMyth YouTube channel link.
 - 🔗 **`/serverlink`** — Gives you the OutMyth Discord server invite.
 - 📶 **`/ping`** — Mentions the user who ran the command.
-- 🥸 **`/rickroll`** — Sends a hidden Rickroll link.
+- 🥸 **`/rickroll`** — Sends a hidden rickroll link.
 - ➕ **`/invite`** — Gives you the invite link for OutBot.
 - 🗺️ **`/roadmap`** — Shows OutBot's planned upcoming features.
 - ❓ **`/help`** — Shows the bot's command guide.
@@ -32,7 +32,9 @@ OutBot does **not** use prefix commands, so there is no command prefix required.
 # 🔒 Ephemeral Messages
 
 Ephemeral messages can **only be seen by the user who triggered the command**.
-The following commands use ephemeral responses:
+When Ephemeral = True, **only the user who sent the command can see the message displayed by the bot**.
+When Ephemeral = Flase, **everyone can see the message sent by the bot**.
+The following commands have Ephemeral = True:
 
 - 📩 **`/dm`**
 - 🆘 **`/help`**
@@ -55,7 +57,7 @@ The following commands use ephemeral responses:
 ### 🛡️ OutMod
 
 A separate Discord moderation bot is planned for the future.
-OutMod will focus on moderation and server management features, while OutBot will remain focused on **fun and interactive features**.
+OutMod will be a **moderation bot focused with user privacy in mind**, while OutBot will as a **fun bot**.
 
 --------------
 
@@ -63,6 +65,6 @@ OutMod will focus on moderation and server management features, while OutBot wil
 
 - **Mythordian**
 - **aardapel1**
-
-Thanks for using OutBot! ❤️ 
-To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc or please open a GitHub issue.
+ 
+To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc or, please open a GitHub issue.
+**Thanks for using OutBot! ❤️**
