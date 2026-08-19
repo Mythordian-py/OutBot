@@ -8,9 +8,9 @@ class General(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-    @discord.app_commands.command(
-      name="hello",
-      description="It pings you & says hello!",
+  @discord.app_commands.command(
+    name="hello",
+    description="It pings you & says hello!",
   )
   
   async def hello(interaction):
@@ -80,7 +80,7 @@ class General(commands.Cog):
           logging.exception("Unexpected error in /say")
 
 
-@bot.tree.command(
+@discord.app_commands.command(
     name="ping",
     description="Pings you",
 )
