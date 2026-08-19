@@ -55,7 +55,7 @@ async def on_ready():
     description="It pings you & says hello!",
 
 )
-async def hello(interaction):
+async def hello(interaction: str):
     """
     This command greets the user.
     """
@@ -67,7 +67,7 @@ async def hello(interaction):
     description="Shows OutMyth's Discord & YouTube links and OutMyth's owners",
 
 )
-async def outmyth(interaction):
+async def outmyth(interaction: str):
     """
     Useful information about OutMyth (Explains what OUtMyth is).
     """
@@ -86,7 +86,7 @@ OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
     description="OutMyth Discord Server Rules.",
 
 )
-async def rules(interaction):
+async def rules(interaction: str):
     """
     OutMyth discord server rules. These can be found in the channel "rules" in OutMyth's Discord server.
     """
