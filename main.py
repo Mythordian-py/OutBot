@@ -19,7 +19,11 @@ if not token:
     raise RuntimeError("Discord token not found.")
 
 
+async bot.load_extention(cog.general)
+
+
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
+
 
 # |=========|
 # | Intents |
