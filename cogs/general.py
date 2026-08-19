@@ -80,5 +80,17 @@ class General(commands.Cog):
           logging.exception("Unexpected error in /say")
 
 
+@bot.tree.command(
+    name="ping",
+    description="Pings you",
+)
+
+async def ping(interaction):
+    """
+    This command pings the user when it is used.
+    """
+    await interaction.response.send_message(f"{interaction.user.mention}")
+
+
 async def setup(bot):
   await bot.add_cog(General(bot))
