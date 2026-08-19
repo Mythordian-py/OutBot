@@ -55,7 +55,7 @@ async def on_ready():
     description="It pings you & says hello!",
 
 )
-async def hello(interaction: str):
+async def hello(interaction):
     """
     This command greets the user.
     """
@@ -67,7 +67,7 @@ async def hello(interaction: str):
     description="Shows OutMyth's Discord & YouTube links and OutMyth's owners",
 
 )
-async def outmyth(interaction: str):
+async def outmyth(interaction):
     """
     Useful information about OutMyth (Explains what OUtMyth is).
     """
