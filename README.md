@@ -63,7 +63,7 @@ OutMod will be a **moderation bot focused with user privacy in mind**, while Out
 
 # 👥 Developers
 
-- **Mythordian**
+- **mythordian**
 - **aardapel1**
  
 To report any issues please open a ticket on OutMyth - https://discord.gg/Sc5vAvTJtc or, please open a GitHub issue.
