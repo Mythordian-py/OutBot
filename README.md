@@ -7,7 +7,7 @@ A separate moderation bot called **OutMod** will be released in the future.
 --------------
 
 # 🤖 OutBot Commands
-OutBot currently has **15 slash commands**.
+OutBot currently has **14 slash commands**.
 OutBot does **not** use prefix commands, so there is no command prefix required.
 ### 🎮 Commands
 
