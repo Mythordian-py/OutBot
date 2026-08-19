@@ -157,7 +157,7 @@ async def dm(interaction, msg: str):
         )
 
     except Exception:
-        logging.exception("message")
+        logging.exception("Unexpected error in /dm")
 
 
 @bot.tree.command(
@@ -187,7 +187,7 @@ async def say(interaction, say: str):
         )
 
     except Exception:
-        logging.exception("message")
+        logging.exception("Unexpected error in /say")
 
 
 @bot.tree.command(
