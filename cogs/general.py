@@ -1,13 +1,13 @@
 import discord
+import logging
+
 from discord.ext import commands
 
-
-class General(commands.cog)
-
+class General(commands.Cog):
+  
   def __init__(self, bot)
     self.bot = bot
 
-  
     @discord.app_commands.command(
       name="hello",
       description="It pings you & says hello!",
@@ -18,7 +18,6 @@ class General(commands.cog)
       This command greets the user.
       """
       await interaction.response.send_message(f"Hello, {interaction.user.mention}!")
-
   
   @discord.app_commands.command(
     name="dm",
@@ -50,8 +49,7 @@ class General(commands.cog)
   
       except Exception:
           logging.exception("Unexpected error in /dm")
-  
-  
+    
   @discord.app_commands.command(
       name="say",
       description="You tell the Bot what to say!",
