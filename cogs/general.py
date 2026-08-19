@@ -13,7 +13,7 @@ class General(commands.Cog):
     description="It pings you & says hello!",
   )
   
-  async def hello(interaction):
+  async def hello(self, interaction):
       """
       This command greets the user.
       """
@@ -24,7 +24,7 @@ class General(commands.Cog):
     description="Dms the user. Please make sure you have Dms turned on.",
 )
 
-  async def dm(interaction, msg: str):
+  async def dm(self, interaction, msg: str):
       """
       THe command Dms the user who triggered the command.
       """
@@ -55,7 +55,7 @@ class General(commands.Cog):
       description="You tell the Bot what to say!",
   )
 
-  async def say(interaction, say: str):
+  async def say(self, interaction, say: str):
       """
       You tell the bot what to say.
       """
@@ -85,7 +85,7 @@ class General(commands.Cog):
     description="Pings you",
 )
 
-async def ping(interaction):
+async def ping(self, interaction):
     """
     This command pings the user when it is used.
     """
