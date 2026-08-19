@@ -2,29 +2,39 @@ import discord
 import logging
 import os
 
+
 from discord.ext import commands
 from dotenv import load_dotenv
 from emojis import emojis
 
+
 # ==============|
 # |Discord cofig|
 # |=============|
+
 
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 if not token:
     raise RuntimeError("Discord token not found.")
 
+
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
 
-# Intents | We need member intents to add/remove onboarding roles.
+# |=======|
+# |Intents|
+# |=======|
+
+
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix=None, intents=intents)
 
+
 # |======|
 # |Events|
 # |======|
+
 
 @bot.event
 async def on_ready():
@@ -34,29 +44,32 @@ async def on_ready():
     print()
     print(f"Synced {len(synced)} slash commands.")
 
+
 # |==============|
 # |Slash Commands|
 # |==============|
-# ephemeral=False by default = Everyone can see the response.
-# ephemeral=True = Only the user who sent the command can see the response.
+
 
 @bot.tree.command(
     name="hello",
     description="It pings you & says hello!",
+
 )
 async def hello(interaction):
     """
-    /hello | This command can be used to check if the bot is online; if commands work; a "fun"-command.
+    This command greets the user.
     """
     await interaction.response.send_message(f"Hello, {interaction.user.mention}!")
+
 
 @bot.tree.command(
     name="outmyth",
     description="Shows OutMyth's Discord & YouTube links and OutMyth's owners",
+
 )
 async def outmyth(interaction):
     """
-    /outmyth | Useful information about OutMyth. For example, links to OutMyth's Discord server and YouTube channel. Explains what OUtMyth is.
+    Useful information about OutMyth (Explains what OUtMyth is).
     """
     await interaction.response.send_message(
         f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian!
@@ -67,13 +80,15 @@ OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
 {interaction.user.mention}"""
     )
 
+
 @bot.tree.command(
     name="omrules",
     description="OutMyth Discord Server Rules.",
+
 )
 async def rules(interaction):
     """
-    /omrules | OutMyth discord server rules. These can be found in the channel "rules" in OutMyth's Discord server.
+    OutMyth discord server rules. These can be found in the channel "rules" in OutMyth's Discord server.
     """
     await interaction.response.send_message(f"""## :scroll: **Rules**
 
@@ -112,13 +127,15 @@ async def rules(interaction):
 - :handshake: Be kind, respectful, and helpful to everyone.
     {interaction.user.mention}""")
 
+
 @bot.tree.command(
     name="dm",
     description="Dms the user. Please make sure you have Dms turned on.",
+
 )
 async def dm(interaction, msg: str):
     """
-    /dm | Dms the user. ("Check you Dms!" Can only be seen by you becasue: ephemeral=True) You can Dm yourself anything you want. Error handling including.
+    THe command Dms the user who triggered the command.
     """
     if len(msg) > 2000:
         await interaction.response.send_message(
@@ -142,13 +159,15 @@ async def dm(interaction, msg: str):
     except Exception:
         logging.exception("message")
 
+
 @bot.tree.command(
     name="say",
     description="You tell the Bot what to say!",
+
 )
 async def say(interaction, say: str):
     """
-    /say | You tell the bot what to say. This command includes error handling.
+    You tell the bot what to say.
     """
     if len(say) > 2000:
         await interaction.response.send_message(
@@ -170,29 +189,33 @@ async def say(interaction, say: str):
     except Exception:
         logging.exception("message")
 
+
 @bot.tree.command(
     name="poll",
     description="Create a new poll.",
+
 )
 async def poll(interaction, title: str, question: str):
     """
-    /poll | Creates a poll with a title, question and 20 reactions to allow the user to pick a reaction of their choice. (20 reactions is the max amount of reactions a
-    Discord message can have).The poll title and question are both strings.
+    Creates a poll with a title, question, and reactions
     """
+    
     embed = discord.Embed(title=title, description=question)
     await interaction.response.send_message(embed=embed)
     poll_msg = await interaction.original_response()
     for emoji in emojis:
         await poll_msg.add_reaction(emoji)
 
+
 @bot.tree.command(
     name="help",
     description="Command guide",
+
 )
 async def help(interaction):
     """
-    /help | Outbot commands list. This can only be seen by you because of ephemeral=True. Split into 3 parts of 5 commands to bypass discord's 2000 character limit.
-    This message can only be seen by you because of ephemeral=True.
+    OutBot's command list and what they do/how to use them. It is Split into 3 parts of 5 commands to bypass discord's 2000 character 
+    limit.
     """
     part1 = """## OutBot Commands (1 - 5)
 
@@ -211,6 +234,7 @@ async def help(interaction):
         To use /poll, type /poll in the Bot's DMs or in the channels commands/chatbot followed by what you want your poll to be about.
         Eg: /poll Do you like to sleep"""
 
+    
     part2 = """## OutBot Commands (6 - 10)
 
     - Command 6: /outbot
@@ -229,6 +253,7 @@ async def help(interaction):
         To use /botrules, type /botrules in the bot's DMs or in the channels commands/chatbot.
         The command: /botrules will display the rules on how to use OutBot"""
 
+    
     part3 = f"""Outbot Commands (11 - 15)
 
 - Command 11: /ping
@@ -249,13 +274,15 @@ async def help(interaction):
     await interaction.followup.send(part2, ephemeral=True)
     await interaction.followup.send(part3, ephemeral=True)
 
+
 @bot.tree.command(
     name="outbot",
     description="Information about OutBot!",
+
 )
 async def outbot(interaction):
     """
-    /outbot | Useful information about OutBot. This command exists for user transparency.
+    Useful information about OutBot.
     """
     await interaction.response.send_message(f"""## OutBot
 ## - Bot Version = 0.4
@@ -267,13 +294,15 @@ async def outbot(interaction):
 ## - GitHub = <https://github.com/Mythordian-py/OutBot/>
 ## - {interaction.user.mention}""")
 
-@bot.tree.command(
+
+    @bot.tree.command(
     name="botrules",
     description="OutBot's Rules!",
+
 )
 async def botrules(interaction):
     """
-    /botrules | OutBot usage rules. Ensures the user knows how to use OutBot appropriately. ephemeral=False so other users can see OutBot's rules.
+    OutBot usage rules. Ensures the user knows how to use OutBot appropriately.
     """
     await interaction.response.send_message(f"""## Bot Rules
     - 1. Use the bot for its intended purpose.
@@ -283,61 +312,71 @@ async def botrules(interaction):
     - 5. Do **NOT** make the bot DM you something offensive or make the bot say something offensive
 ## - {interaction.user.mention}""")
 
+
 @bot.tree.command(
     name="youtube",
     description="OutMyth's YouTube channel link",
+
 )
 async def youtube(interaction):
     """
-    /youtube | OutMyth YouTube channel link. ephemeral=False to other users can see OutMyth's channel link.
+    OutMyth YouTube channel link.
     """
     await interaction.response.send_message(f"""OutMyth's YouTube Channel:
     
 <https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
 {interaction.user.mention}""")
 
+
 @bot.tree.command(
     name="serverlink", description="OutMyth's Discord server invite link."
+
 )
 async def serverlink(interaction):
     """
-    /serverlink | OutMyth Discord server invite link. ephemeral=False so other users can use the discord invite link.
+    OutMyth Discord server invite link.
     """
     await interaction.response.send_message(f"""OutMyth's Discord Server:
 
 https://discord.gg/Sc5vAvTJtc
 {interaction.user.mention}""")
 
+
 @bot.tree.command(
     name="ping",
     description="Pings you",
+
 )
 async def ping(interaction):
     """
-    /ping | This command is a "fun"-command.
+    This command pings the user when it is used.
     """
     await interaction.response.send_message(f"{interaction.user.mention}")
+
 
 @bot.tree.command(
     name="rickroll",
     description="Don't do it...",
+
 )
 async def rickroll(interaction):
     """
-    /rickroll | Sends the youtube link to rickroll the user. Only the user can you it because of ephemeral=True.
+    Sends a youtube link to rickroll the user.
     """
     await interaction.response.send_message(
         "CLICK ME ---> ||<https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1>||",
         ephemeral=True,
     )
 
+
 @bot.tree.command(
     name="invite",
     description="Invite link for OutBot",
+
 )
 async def invite(interaction):
     """
-    /invite | Sends the invite link for the bot. This can be seen by anyone to ensure people can easily add OutBot to their own Discord  server's.
+    Sends the invite link for the bot.
     """
     await interaction.response.send_message(f"""Outbot Invite Link:
 
@@ -345,13 +384,15 @@ async def invite(interaction):
     
     {interaction.user.mention}""")
 
+
 @bot.tree.command(
     name="roadmap",
     description="OutBot's Planned Features!",
+
 )
 async def roadmap(interaction):
     """
-    /roadmap | Outbot's planned features. This command is for users to improve any planned features, or give the Devs new ideas for new features.
+    Outbot's planned features.
     """
     await interaction.response.send_message(f"""## OutBot's Planned features!
     - Assign/Remove onboarding roles
@@ -361,5 +402,6 @@ async def roadmap(interaction):
     - Role Information
     - Improved Quality Of Existing Commands
     {interaction.user.mention}""")
+
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
