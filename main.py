@@ -8,9 +8,9 @@ from dotenv import load_dotenv
 from emojis import emojis
 
 
-# ==============|
-# |Discord cofig|
-# |=============|
+# |===============|
+# | Discord cofig |
+# |===============|
 
 
 load_dotenv()
@@ -21,9 +21,9 @@ if not token:
 
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
 
-# |=======|
-# |Intents|
-# |=======|
+# |=========|
+# | Intents |
+# |=========|
 
 
 intents = discord.Intents.default()
@@ -31,9 +31,9 @@ intents.members = True
 bot = commands.Bot(command_prefix=None, intents=intents)
 
 
-# |======|
-# |Events|
-# |======|
+# |========|
+# | Events |
+# |========|
 
 
 @bot.event
@@ -45,9 +45,9 @@ async def on_ready():
     print(f"Synced {len(synced)} slash commands.")
 
 
-# |==============|
-# |Slash Commands|
-# |==============|
+# |================|
+# | Slash Commands |
+# |================|
 
 
 @bot.tree.command(
