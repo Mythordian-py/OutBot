@@ -33,7 +33,7 @@ OutBot does **not** use prefix commands, so there is no command prefix required.
 
 Ephemeral messages can **only be seen by the user who triggered the command**.
 When Ephemeral = True, **only the user who sent the command can see the message displayed by the bot**.
-When Ephemeral = Flase, **everyone can see the message sent by the bot**.
+When Ephemeral = False, **everyone can see the message sent by the bot**.
 The following commands have Ephemeral = True:
 
 - 📩 **`/dm`**
