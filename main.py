@@ -44,7 +44,7 @@ await bot.load_extension("cog.fun")
 
 @bot.event
 async def on_ready():
-    synced = await dicord.app_commands.sync()
+    synced = await self.tree.sync()
     print()
     print("OutBot is ready to be used.")
     print()
