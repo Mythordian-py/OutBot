@@ -141,20 +141,6 @@ async def outbot(interaction):
 
 
 @bot.tree.command(
-    name="serverlink", description="OutMyth's Discord server invite link."
-
-)
-async def serverlink(interaction):
-    """
-    OutMyth Discord server invite link.
-    """
-    await interaction.response.send_message(f"""OutMyth's Discord Server:
-
-https://discord.gg/Sc5vAvTJtc
-{interaction.user.mention}""")
-
-
-@bot.tree.command(
     name="rickroll",
     description="Don't do it...",
 
@@ -167,22 +153,6 @@ async def rickroll(interaction):
         "CLICK ME ---> ||<https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1>||",
         ephemeral=True,
     )
-
-
-@bot.tree.command(
-    name="invite",
-    description="Invite link for OutBot",
-
-)
-async def invite(interaction):
-    """
-    Sends the invite link for the bot.
-    """
-    await interaction.response.send_message(f"""Outbot Invite Link:
-
-    <https://discord.com/oauth2/authorize?client_id=1525595736706781384>
-    
-    {interaction.user.mention}""")
 
 
 @bot.tree.command(
