@@ -71,5 +71,5 @@ class RulesCommands(commands.cog):
 ## - {interaction.user.mention}""")
 
 
-async setup(bot):
+async def setup(bot):
   await bot.add_cog(RulesCommands(bot))
