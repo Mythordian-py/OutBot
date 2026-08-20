@@ -7,12 +7,11 @@ A separate moderation bot called **OutMod** will be released in the future.
 --------------
 
 # 🤖 OutBot Commands
-OutBot currently has **15 slash commands**.
+OutBot currently has **14 slash commands**.
 OutBot does **not** use prefix commands, so there is no command prefix required.
 ### 🎮 Commands
 
 - 👋 **`/hello`** — Says hello and mentions you.
-- 🌐 **`/outmyth`** — Shows information about OutMyth, including its Discord server and YouTube channel.
 - 📩 **`/dm`** — Sends a message to your own DMs. Make sure your DMs are enabled!
 - 🗣️ **`/say`** — Makes OutBot say any message you want.
 - 📊 **`/poll`** — Creates a poll with a title and question.
