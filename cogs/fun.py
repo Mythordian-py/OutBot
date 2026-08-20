@@ -7,7 +7,7 @@ class FunCommands(commands.Cog):
   def __init__(self, bot):
     self.bot = bot
 
-  @bot.tree.command(
+  @discord.tree.command(
     name="rickroll",
     description="Don't do it...",
 )
