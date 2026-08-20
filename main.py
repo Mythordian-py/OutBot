@@ -3,6 +3,7 @@ import logging
 import os
 
 
+from cogs import fun, general, information, links, rules
 from discord.ext import commands
 from dotenv import load_dotenv
 from emojis import emojis
