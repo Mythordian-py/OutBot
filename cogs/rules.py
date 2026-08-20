@@ -8,7 +8,7 @@ class RulesCommands(commands.cog):
     self.bot = bot
 
   
-  @bot.tree.command(
+  @discord.app_commands.command(
     name="omrules",
     description="OutMyth Discord Server Rules.",
 )
