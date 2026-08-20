@@ -25,10 +25,10 @@ class GeneralCommands(commands.Cog):
 )
 
   async def dm(self, interaction: discord.Interaction, msg: str):
-      if len(msg) > 2000:
+      if len(msg) > 1999:
           await interaction.response.send_message(
-              """Error 413! Your message was more than characters 2000. This means your message is too long to send. Please make your 
-          message shorter""",
+              """Your message was more than characters 2000. This means your message is too long to send. Please make your message 
+              shorter""",
               ephemeral=True,
           )
           return
@@ -39,8 +39,7 @@ class GeneralCommands(commands.Cog):
   
       except discord.Forbidden:
           await interaction.response.send_message(
-              """Error 403! I could not send you a Dm. This is because you have them turned off. Please turn them on to allow me to send
-          you a dm""",
+              """I could not send you a Dm. This is because you have them turned off. Please turn them on to allow me to send you a dm""",
               ephemeral=True,
           )
   
@@ -53,9 +52,9 @@ class GeneralCommands(commands.Cog):
   )
 
   async def say(self, interaction: discord.Interaction, say: str):
-      if len(say) > 2000:
+      if len(say) > 1999:
           await interaction.response.send_message(
-              "Error 413! Your message was too long. Please make it shorter. To allow me to send you a DM.",
+              "Your message was too long. Please make it shorter. To allow me to send you a DM.",
               ephemeral=True,
           )
           return
@@ -67,7 +66,7 @@ class GeneralCommands(commands.Cog):
   
       except discord.HTTPException as e:
           await interaction.response.send_message(
-              f"Error{e.status}! Discord API failure", ephemeral=True
+               "Discord API failure", ephemeral=True
           )
   
       except Exception:
