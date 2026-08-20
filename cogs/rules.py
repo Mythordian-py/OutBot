@@ -51,6 +51,25 @@ class RulesCommands(commands.cog):
 
 - :handshake: Be kind, respectful, and helpful to everyone.
     {interaction.user.mention}""")
-  
+
+    
+    @bot.tree.command(
+    name="botrules",
+    description="OutBot's Rules!",
+)
+    
+  async def botrules(interaction):
+    """
+    OutBot usage rules. Ensures the user knows how to use OutBot appropriately.
+    """
+    await interaction.response.send_message(f"""## Bot Rules
+    - 1. Use the bot for its intended purpose.
+    - 2. Only use OutBot in the channels command or chatbot.
+    - 3. Do NOT try to exploit OutBot.
+    - 4. Please try to find bugs and report them by opening a ticket.
+    - 5. Do **NOT** make the bot DM you something offensive or make the bot say something offensive
+## - {interaction.user.mention}""")
+
+
 async setup(bot):
   await bot.add_cog(RulesCommands(bot))
