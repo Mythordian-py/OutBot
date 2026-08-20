@@ -4,18 +4,18 @@ from discord.ext import commands
 
 class RulesCommands(commands.Cog):
   
-  def __init__(self, bot):
-    self.bot = bot
+    def __init__(self, bot):
+        self.bot = bot
 
   
-  @discord.app_commands.command(
-    name="omrules",
-    description="OutMyth Discord Server Rules.",
+    @discord.app_commands.command(
+        name="omrules",
+        description="OutMyth Discord Server Rules.",
 )
 
-  async def rules(self, interaction: discord.Interaction):
-    """These can be found in the channel "rules", in OutMyth's Discord server."""
-    await interaction.response.send_message(f"""## :scroll: **Rules**
+    async def rules(self, interaction: discord.Interaction):
+        """These can be found in the channel "rules", in OutMyth's Discord server."""
+        await interaction.response.send_message(f"""## :scroll: **Rules**
 
 ## 1. :x:** NO** NSFW And **NO** Malicious Content.
 
@@ -53,13 +53,13 @@ class RulesCommands(commands.Cog):
     {interaction.user.mention}""")
 
     
-  @discord.app_commands.command(
-    name="botrules",
-    description="OutBot's Rules!",
+    @discord.app_commands.command(
+        name="botrules",
+        description="OutBot's Rules!",
 )
     
-  async def botrules(self, interaction: discord.Interaction):
-    await interaction.response.send_message(f"""## Bot Rules
+    async def botrules(self, interaction: discord.Interaction):
+        await interaction.response.send_message(f"""## Bot Rules
     - 1. Use the bot for its intended purpose.
     - 2. Only use OutBot in the channels command or chatbot.
     - 3. Do NOT try to exploit OutBot.
@@ -68,5 +68,5 @@ class RulesCommands(commands.Cog):
 ## - {interaction.user.mention}""")
 
 
-async def setup(bot):
-  await bot.add_cog(RulesCommands(bot))
+    async def setup(bot):
+        await bot.add_cog(RulesCommands(bot))
