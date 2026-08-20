@@ -14,7 +14,7 @@ class RulesCommands(commands.cog):
 )
 
   async def rules(self, interaction: discord.Interaction):
-    """These can be found in the channel "rules" in OutMyth's Discord server."""
+    """These can be found in the channel "rules", in OutMyth's Discord server."""
     await interaction.response.send_message(f"""## :scroll: **Rules**
 
 ## 1. :x:** NO** NSFW And **NO** Malicious Content.
@@ -59,9 +59,6 @@ class RulesCommands(commands.cog):
 )
     
   async def botrules(self, interaction: discord.Interaction):
-    """
-    OutBot usage rules. Ensures the user knows how to use OutBot appropriately.
-    """
     await interaction.response.send_message(f"""## Bot Rules
     - 1. Use the bot for its intended purpose.
     - 2. Only use OutBot in the channels command or chatbot.
