@@ -53,7 +53,7 @@ class RulesCommands(commands.Cog):
     {interaction.user.mention}""")
 
     
-    @bot.tree.command(
+  @discord.app_commands.command(
     name="botrules",
     description="OutBot's Rules!",
 )
