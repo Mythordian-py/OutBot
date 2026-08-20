@@ -30,7 +30,7 @@ https://discord.gg/Sc5vAvTJtc
 {interaction.user.mention}""")
 
 
-  @bot.tree.command(
+  @discord.app_commands.command(
     name="invite",
     description="Invite link for OutBot",
 )
