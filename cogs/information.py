@@ -4,16 +4,16 @@ from discord.ext import commands
 
 class InformationCommands(commands.Cog)
 
-  def __init__(self, bot):
-    self.bot = bot
+    def __init__(self, bot):
+        self.bot = bot
 
-  @discord.app_commands.command(
-    name="help",
-    description="Command guide",
+    @discord.app_commands.command(
+        name="help",
+        description="Command guide",
 )
-  async def help(interaction: discord.Interaction):
-    """It is Split into 3 parts of 5 commands to bypass discord's 2000 character limit."""
-    part1 = """## OutBot Commands (1 - 5)
+      async def help(interaction: discord.Interaction):
+        """It is Split into 3 parts of 5 commands to bypass discord's 2000 character limit."""
+        part1 = """## OutBot Commands (1 - 5)
 
     - Command 1: /hello
     To use the /hello command, type /hello in commands/chatbot, or in the bot's DMs.
@@ -30,7 +30,7 @@ class InformationCommands(commands.Cog)
         To use the command: /outbot, type /outbot in the Bot's DMs or in the channels commands/chatbot.
         The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs."""
     
-    part2 = """OutBot Commands (6 - 10)
+        part2 = """OutBot Commands (6 - 10)
 
     - Command 6: /youtube
         To use /youtube, type /youtube in the bot's DMs or in the channels commands/chatbot.
@@ -49,7 +49,7 @@ class InformationCommands(commands.Cog)
     The command: /ping will ping the user who called the command."""
 
     
-    part3 = f"""Outbot Commands (11 - 13)
+        part3 = f"""Outbot Commands (11 - 13)
 
 - Command 11: ||/rickroll||
     To use ||/rickroll||, type ||/rickroll|| in the bot's DMs or in the channels command/chatbot.
@@ -67,13 +67,13 @@ class InformationCommands(commands.Cog)
     await interaction.followup.send(part3, ephemeral=True)
 
 
-  @discord.app_commands.command(
-    name="outbot",
-    description="Information about OutBot!",
+    @discord.app_commands.command(
+        name="outbot",
+        description="Information about OutBot!",
 )
 
-  async def outbot(interaction: discord.Interaction):
-    await interaction.response.send_message(f"""## OutBot
+    async def outbot(interaction: discord.Interaction):
+        await interaction.response.send_message(f"""## OutBot
 ## - Bot Version = 0.4
 ## - Developers = mythordian & aardappel1
 ## - Date Started = July 11th 2026
@@ -83,13 +83,13 @@ class InformationCommands(commands.Cog)
 ## - GitHub = <https://github.com/OuyMyth-Dev/OutBot/>
 ## - {interaction.user.mention}""")
 
-  @bot.tree.command(
-    name="roadmap",
-    description="OutBot's Planned Features!",
+    @discord.app_commands.command(
+        name="roadmap",
+        description="OutBot's Planned Features!",
 )
   
-  async def roadmap(interaction: discord.Interaction):
-    await interaction.response.send_message(f"""## OutBot's Planned features!
+    async def roadmap(interaction: discord.Interaction):
+        await interaction.response.send_message(f"""## OutBot's Planned features!
     - Assign/Remove onboarding roles
     - Error handling
     - TOS & Privacy Policy
@@ -100,4 +100,4 @@ class InformationCommands(commands.Cog)
 
 
 async def setup(bot):
-  await bot.add_cog(InformationCommands(bot))
+    await bot.add_cog(InformationCommands(bot))
