@@ -7,6 +7,28 @@ class LinksCommands(commands.cog):
     self.bot = bot
 
 
+  @discord.app_commands.command(
+    name="youtube",
+    description="OutMyth's YouTube channel link",
+)
+
+  async def youtube(self, interaction: discord.Interaction):
+    await interaction.response.send_message(f"""OutMyth's YouTube Channel:
+    
+<https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
+{interaction.user.mention}""")
+
+
+  @discord.app_commands.command(
+    name="serverlink", description="OutMyth's Discord server invite link."
+)
+
+  async def serverlink(interaction):
+    await interaction.response.send_message(f"""OutMyth's Discord Server:
+
+https://discord.gg/Sc5vAvTJtc
+{interaction.user.mention}""")
+
 
 async def setup(bot):
   await bot.add_cog(Links(bot))
