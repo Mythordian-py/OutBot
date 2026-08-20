@@ -20,6 +20,7 @@ if not token:
 
 
 async bot.load_extention(cog.general)
+async bot.load_extention(cog.rules)
 
 
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
