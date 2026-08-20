@@ -3,7 +3,6 @@ import logging
 import os
 
 
-from cogs import fun, general, information, links, rules
 from discord.ext import commands
 from dotenv import load_dotenv
 from emojis import emojis
@@ -20,11 +19,11 @@ if not token:
     raise RuntimeError("Discord token not found.")
 
 
-async bot.load_extention(cog.general)
-async bot.load_extention(cog.rules)
-async bot.load_extention(cog.links)
-async bot.load_extention(cog.information)
-async bot.load_extention(cog.fun)
+async bot.load_extention("cog.general")
+async bot.load_extention("cog.rules")
+async bot.load_extention("cog.links")
+async bot.load_extention("cog.information")
+async bot.load_extention("cog.fun")
 
 
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
