@@ -13,7 +13,7 @@ class RulesCommands(commands.cog):
     description="OutMyth Discord Server Rules.",
 )
 
-  async def rules(interaction: str):
+  async def rules(self, interaction: discord.Interaction):
     """These can be found in the channel "rules" in OutMyth's Discord server."""
     await interaction.response.send_message(f"""## :scroll: **Rules**
 
@@ -58,7 +58,7 @@ class RulesCommands(commands.cog):
     description="OutBot's Rules!",
 )
     
-  async def botrules(interaction):
+  async def botrules(self, interaction: discord.Interaction):
     """
     OutBot usage rules. Ensures the user knows how to use OutBot appropriately.
     """
