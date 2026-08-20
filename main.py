@@ -54,21 +54,6 @@ async def on_ready():
 # | Slash Commands |
 # |================|
 
-@bot.tree.command(
-    name="outmyth",
-    description="Useful imformation about OutMyth",
-)
-
-async def outmyth(interaction):
-    """Explains what OutMyth is."""
-    await interaction.response.send_message(
-        f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian!
-
-OutMyth YouTube = <https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
-    
-OutMyth Discord = https://discord.gg/Sc5vAvTJtc.
-{interaction.user.mention}""")
-
 
 @bot.tree.command(
     name="help",
@@ -85,50 +70,46 @@ async def help(interaction):
     - Command 1: /hello
     To use the /hello command, type /hello in commands/chatbot, or in the bot's DMs.
         Says Hello to the user and ping the user.
-    - Command 2: /outmyth
-        To use /outmyth, type /outmyth in the bot's DMs or in the channels commands/chatbot.
-        /outmyth will tell you about OutMyth. It will send the links of OutMyth's YouTube channel and discord server.
-    - Command 3: /dm
+    - Command 2: /dm
         To use /dm, type /dm in the channels commands/chatbot followed by what you want to be Dmed. 
         Eg: /dm Hello. The bot will DM me Hello) Please make sure your DMs are turned on. If they are not on, the command will not work.
-    - Command 4: /say
+    - Command 3: /say
         To use /say, type /say in the bot's DMs, in the channels commands or chatbot. /say say anything you want it to say.
-    - Command 5: /poll
+    - Command 4: /poll
         To use /poll, type /poll in the Bot's DMs or in the channels commands/chatbot followed by what you want your poll to be about.
-        Eg: /poll Do you like to sleep"""
-
-    
-    part2 = """## OutBot Commands (6 - 10)
-
-    - Command 6: /outbot
+        Eg: /poll Do you like to sleep?
+    - Command 5: /outbot
         To use the command: /outbot, type /outbot in the Bot's DMs or in the channels commands/chatbot.
-        The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs.
-    - Command 7: /youtube
+        The command outbot will show the bots developers, GitHub page, TOS etc.Please only use OutBot in the channel chatbot, commands or in the bots DMs."""
+    
+    part2 = """OutBot Commands (6 - 10)
+
+    - Command 6: /youtube
         To use /youtube, type /youtube in the bot's DMs or in the channels commands/chatbot.
         /youtube will give you the link to OutMyth's YouTube channel.
-    - Command 8: /serverlink
+    - Command 7: /serverlink
         To use /serverlink, type /serverlink in the bot's DMs or in the channels commands/chatbot.
         /serverlink will give you the invite link to OutMyth's discord server.
-    - Command 9: /omrules
+    - Command 8: /omrules
         To use /omrules, type /omrules in the bot's DMs or in the channels command/chatbot.
         /omrules will display OutMyth's discord server rules.
-    - Command 10: /botrules
+    - Command 9: /botrules
         To use /botrules, type /botrules in the bot's DMs or in the channels commands/chatbot.
-        The command: /botrules will display the rules on how to use OutBot"""
+        The command: /botrules will display the rules on how to use OutBot
+    - Command 10: /ping
+    To use /ping, type /ping in the bot's DMs or in the channels commands/chatbot.
+    The command: /ping will ping the user who called the command."""
 
     
-    part3 = f"""Outbot Commands (11 - 15)
+    part3 = f"""Outbot Commands (11 - 13)
 
-- Command 11: /ping
-    To use /ping, type /ping in the bot's DMs or in the channels commands/chatbot.
-    The command: /ping will ping the user who called the command.
-- Command 12: ||/rickroll||
+- Command 11: ||/rickroll||
     To use ||/rickroll||, type ||/rickroll|| in the bot's DMs or in the channels command/chatbot.
     The command will send you a special link...
-- Command 13: /invite
+- Command 12: /invite
     To use /invite, type /invite in the bot's DMs or in the channels commands/chatbot.
     The command will send you the invite link for OutBot
--Command 14: /roadmap
+-Command 13: /roadmap
     To use /roadmap, type /roadmap in the bot's DMs or in the channels commands/chatbot.
     /roadmap will show you OutBot's planned features!
     {interaction.user.mention}"""
