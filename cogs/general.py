@@ -14,9 +14,6 @@ class GeneralCommands(commands.Cog):
   )
   
   async def hello(self, interaction: discord.Interaction):
-      """
-      This command greets the user.
-      """
       await interaction.response.send_message(f"Hello, {interaction.user.mention}!")
   
   @discord.app_commands.command(
