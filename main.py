@@ -53,11 +53,13 @@ async def on_ready():
 # | Slash Commands |
 # |================|
 
+@bot.tree.command(
+    name="outmyth",
+    description="Useful imformation about OutMyth",
+)
 
 async def outmyth(interaction):
-    """
-    Useful information about OutMyth (Explains what OUtMyth is).
-    """
+    """Explains what OutMyth is."""
     await interaction.response.send_message(
         f"""OutMyth is a YouTube channel and discord server owned by Valorous; Outdaner; Mythrodian!
 
