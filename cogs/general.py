@@ -13,7 +13,7 @@ class GeneralCommands(commands.Cog):
     description="It pings you & says hello!",
   )
   
-  async def hello(self, interaction):
+  async def hello(self, interaction: discord.Interaction):
       """
       This command greets the user.
       """
@@ -24,10 +24,7 @@ class GeneralCommands(commands.Cog):
     description="Dms the user. Please make sure you have Dms turned on.",
 )
 
-  async def dm(self, interaction, msg: str):
-      """
-      THe command Dms the user who triggered the command.
-      """
+  async def dm(self, interaction: discord.Interaction, msg: str):
       if len(msg) > 2000:
           await interaction.response.send_message(
               """Error 413! Your message was more than characters 2000. This means your message is too long to send. Please make your 
@@ -55,10 +52,7 @@ class GeneralCommands(commands.Cog):
       description="You tell the Bot what to say!",
   )
 
-  async def say(self, interaction, say: str):
-      """
-      You tell the bot what to say.
-      """
+  async def say(self, interaction: discord.Interaction, say: str):
       if len(say) > 2000:
           await interaction.response.send_message(
               "Error 413! Your message was too long. Please make it shorter. To allow me to send you a DM.",
@@ -85,10 +79,7 @@ class GeneralCommands(commands.Cog):
     description="Pings you",
 )
 
-async def ping(self, interaction):
-    """
-    This command pings the user when it is used.
-    """
+async def ping(self, interaction: discord.Interaction):
     await interaction.response.send_message(f"{interaction.user.mention}")
 
 
