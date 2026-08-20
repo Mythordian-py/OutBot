@@ -7,7 +7,7 @@ class InformationCommands(commands.Cog)
   def __init__(self, bot):
     self.bot = bot
 
-  @bot.tree.command(
+  @discord.app_commands.command(
     name="help",
     description="Command guide",
 )
@@ -67,7 +67,7 @@ class InformationCommands(commands.Cog)
     await interaction.followup.send(part3, ephemeral=True)
 
 
-  @bot.tree.command(
+  @discord.app_commands.command(
     name="outbot",
     description="Information about OutBot!",
 )
