@@ -21,6 +21,7 @@ if not token:
 
 async bot.load_extention(cog.general)
 async bot.load_extention(cog.rules)
+async bot.load_extention(cog.links)
 
 
 handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="a")
@@ -137,21 +138,6 @@ async def outbot(interaction):
 ## - Privacy Policy = Coming Soon
 ## - GitHub = <https://github.com/Mythordian-py/OutBot/>
 ## - {interaction.user.mention}""")
-
-
-@bot.tree.command(
-    name="youtube",
-    description="OutMyth's YouTube channel link",
-
-)
-async def youtube(interaction):
-    """
-    OutMyth YouTube channel link.
-    """
-    await interaction.response.send_message(f"""OutMyth's YouTube Channel:
-    
-<https://www.youtube.com/channel/UCGjkPP8sjN8WanIY6hhAeKw>
-{interaction.user.mention}""")
 
 
 @bot.tree.command(
