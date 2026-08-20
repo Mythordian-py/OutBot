@@ -2,6 +2,7 @@ import discord
 import logging
 
 from discord.ext import commands
+from emojis import emojis
 
 class GeneralCommands(commands.Cog):
   
@@ -77,6 +78,19 @@ class GeneralCommands(commands.Cog):
 
 async def ping(self, interaction: discord.Interaction):
     await interaction.response.send_message(f"{interaction.user.mention}")
+
+@dsicord.app_commands.command(
+    name="poll",
+    description="Create a new poll.",
+)
+  async def poll(interaction, title: str, question: str):
+    """20 reactions to allow the user to pick a reaction of their choice. 20 reactions is the max amount of reactions aDiscord message
+    can have.The poll title and question are both strings."""
+    embed = discord.Embed(title=title, description=question)
+    await interaction.response.send_message(embed=embed)
+    poll_msg = await interaction.original_response()
+    for emoji in emojis:
+        await poll_msg.add_reaction(emoji)
 
 
 async def setup(bot):
