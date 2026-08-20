@@ -43,4 +43,4 @@ https://discord.gg/Sc5vAvTJtc
 
 
 async def setup(bot):
-  await bot.add_cog(Links(bot))
+  await bot.add_cog(LinksCommands(bot))
