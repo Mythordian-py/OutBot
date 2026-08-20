@@ -80,7 +80,7 @@ class InformationCommands(commands.Cog)
 ## - Last update = July 28nd 2026
 ## - TOS = Coming Soon
 ## - Privacy Policy = Coming Soon
-## - GitHub = <https://github.com/Mythordian-py/OutBot/>
+## - GitHub = <https://github.com/OuyMyth-Dev/OutBot/>
 ## - {interaction.user.mention}""")
 
   @bot.tree.command(
